@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 import tensorflow as tf
+import requests
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
@@ -11,6 +12,8 @@ import base64
 
 # 재귀 깊이 제한 증가 (일시적인 해결책)
 sys.setrecursionlimit(10000)
+
+REST_API_KEY = 'a98c47a7fdcca1ecc24765726681da78'
 
 app = Flask(__name__)
 
@@ -70,36 +73,54 @@ def predict_emotion(img_path):
     emotion = emotion_labels[max_index]
     return emotion, predictions_percentage
 
+def generate_image(prompt, negative_prompt):
+    r = requests.post(
+        'https://api.kakaobrain.com/v2/inference/karlo/t2i',
+        json={
+            'prompt': prompt,
+            'negative_prompt': negative_prompt
+        },
+        headers={
+            'Authorization': f'KakaoAK {REST_API_KEY}',
+            'Content-Type': 'application/json'
+        }
+    )
+    r.raise_for_status()
+    return r.json()
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        if 'file' not in request.files:
-            return render_template('index.html', message='No file part')
-        file = request.files['file']
-        if file.filename == '':
-            return render_template('index.html', message='No selected file')
-        if file:
+        # 텍스트 입력일 때
+        if 'sentence' in request.form:
+            sentence = request.form['sentence']
+            response = generate_image(sentence, '')
+            image_url = response.get('images')[0].get('image')
+            image_data = requests.get(image_url).content
+            base64_image = base64.b64encode(image_data).decode('utf-8')
+            return render_template('result_text.html', image=base64_image)
+
+        # 파일 업로드일 때
+        elif 'file' in request.files:
+            file = request.files['file']
+            if file.filename == '':
+                return render_template('index.html', message='No selected file')
             try:
-                # 파일을 업로드 디렉토리에 저장
                 filename = os.path.join('uploads', file.filename)
                 file.save(filename)
-                # 얼굴 감지 및 추출
                 face_path, error_message = detect_face(filename)
                 if error_message:
-                    # 얼굴이 검출되지 않았을 때는 원본 이미지를 사용하여 감정 예측
                     emotion, predictions_percentage = predict_emotion(filename)
-                    # 이미지를 Base64로 인코딩
                     original_image_encoded = encode_image(filename)
-                    return render_template('result.html', original_image=original_image_encoded, prediction=emotion, percentages=predictions_percentage)
+                    return render_template('result_file.html', original_image=original_image_encoded, prediction=emotion, percentages=predictions_percentage)
                 else:
-                    # 얼굴이 검출되었을 때는 얼굴 이미지를 사용하여 감정 예측
                     emotion, predictions_percentage = predict_emotion(face_path)
-                    # 이미지를 Base64로 인코딩
                     original_image_encoded = encode_image(filename)
                     face_image_encoded = encode_image(face_path)
-                    return render_template('result.html', original_image=original_image_encoded, face_image=face_image_encoded, prediction=emotion, percentages=predictions_percentage)
+                    return render_template('result_file.html', original_image=original_image_encoded, face_image=face_image_encoded, prediction=emotion, percentages=predictions_percentage)
             except Exception as e:
                 return render_template('index.html', message=str(e))
+
     return render_template('index.html')
 
 if __name__ == '__main__':
