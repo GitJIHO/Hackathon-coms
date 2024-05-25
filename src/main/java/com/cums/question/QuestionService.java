@@ -22,11 +22,14 @@ import java.util.Optional;
 @Service
 public class QuestionService {
     private final QuestionRepository questionRepository;
-    public Question getQuestion(Integer id){
+    public Question getQuestion(Integer id) {
         Optional<Question> question = this.questionRepository.findById(id);
-        if(question.isPresent()){
-            return question.get();
-        }else{
+        if (question.isPresent()) {
+            Question question1 = question.get();
+            question1.setView(question1.getView()+1);
+            this.questionRepository.save(question1);
+            return question1;
+        } else {
             throw new DataNotFoundException("question not found");
         }
     }
@@ -60,4 +63,5 @@ public class QuestionService {
         question.getVoter().add(siteUser);
         this.questionRepository.save(question);
     }
+
 }
