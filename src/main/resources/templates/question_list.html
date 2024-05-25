@@ -42,7 +42,7 @@
                     <span>이전</span>
                 </a>
             </li>
-            <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+            <li th:each="page: ${#numbers.sequence(1, paging.totalPages-1)}"
                 th:if="${(paging.number <= 4 and page <= 10) or (page >= paging.number-5 and page <= paging.number+5)}"
                 th:classappend="${page == paging.number} ? 'active'" class="page-item">
                 <a th:text="${page}" class="page-link" href="javascript:void(0)" th:data-page="${page}"></a>
