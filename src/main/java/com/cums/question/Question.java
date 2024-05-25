@@ -31,4 +31,9 @@ public class Question {
     Set<SiteUser> voter;
 
     private LocalDateTime modifyDate;
+
+    @Column(columnDefinition = "integer default 0", nullable = false)
+    private int view;
+
+
 }
