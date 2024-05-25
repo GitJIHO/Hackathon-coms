@@ -29,7 +29,7 @@
                       th:text="${#lists.size(question.answerList)}">
         </span>
             </td>
-            <td><span th:if="${question.author != null}" th:text="${question.author.username}"></span></td>
+            <td><span th:if="${question.author != null}" th:text="${question.author.nickname}"></span></td>
             <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
         </tr>
         </tbody>
