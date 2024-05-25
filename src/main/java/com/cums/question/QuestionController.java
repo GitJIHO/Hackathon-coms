@@ -8,6 +8,8 @@ import com.cums.user.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -32,13 +34,14 @@ public class QuestionController {
     private final QuestionService questionService;
     private final UserService userService;
     @GetMapping("/list")
-    public String list(Model model, @RequestParam(value = "page", defaultValue = "1") int page,
-                       @RequestParam(value = "kw", defaultValue = "") String kw) {
+    public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page,
+        @RequestParam(value = "kw", defaultValue = "") String kw) {
         Page<Question> paging = this.questionService.getList(page, kw);
         model.addAttribute("paging", paging);
         model.addAttribute("kw", kw);
         return "question_list";
     }
+
     @GetMapping(value = "/detail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id, AnswerForm answerForm){ // 변하는 id값을 얻을때에는 @PathVariable
         Question question = this.questionService.getQuestion(id);
@@ -76,7 +79,7 @@ public class QuestionController {
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/modify/{id}") //질문 수정
     public String questionModify(@Valid QuestionForm questionForm, BindingResult bindingResult,
-                                 Principal principal, @PathVariable("id") Integer id) {
+        Principal principal, @PathVariable("id") Integer id) {
         if (bindingResult.hasErrors()) {
             return "question_form";
         }
@@ -115,10 +118,10 @@ public class QuestionController {
                 Join<Question, Answer> a = q.join("answerList", JoinType.LEFT); // 답변 검색
                 Join<Answer, SiteUser> u2 = a.join("author", JoinType.LEFT); //답변 작성자 검색
                 return cb.or(cb.like(q.get("subject"), "%" + kw + "%"), // 제목
-                        cb.like(q.get("content"), "%" + kw + "%"),      // 내용
-                        cb.like(u1.get("username"), "%" + kw + "%"),    // 질문 작성자
-                        cb.like(a.get("content"), "%" + kw + "%"),      // 답변 내용
-                        cb.like(u2.get("username"), "%" + kw + "%"));   // 답변 작성자
+                    cb.like(q.get("content"), "%" + kw + "%"),      // 내용
+                    cb.like(u1.get("username"), "%" + kw + "%"),    // 질문 작성자
+                    cb.like(a.get("content"), "%" + kw + "%"),      // 답변 내용
+                    cb.like(u2.get("username"), "%" + kw + "%"));   // 답변 작성자
             }
         };
     }

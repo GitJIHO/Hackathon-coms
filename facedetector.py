@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 import tensorflow as tf
 import requests
+from googletrans import Translator
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
@@ -8,6 +9,8 @@ import os
 import sys
 import cv2
 import base64
+from langdetect import detect
+
 
 
 # 재귀 깊이 제한 증가 (일시적인 해결책)

@@ -82,11 +82,22 @@
             margin-top: 20px;
             font-size: 14px;
         }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>AI Image Generator</h1>
+    <h1>[COMS] 그림일기</h1>
     <form action="/" method="post" enctype="multipart/form-data">
         <label for="sentence">Enter your text:</label>
         <input type="text" id="sentence" name="sentence" required>
@@ -101,6 +112,9 @@
     {% if message %}
     <p class="message">{{ message }}</p>
     {% endif %}
+    <div style="margin-top: 10px"></div>
+    <br/>
+    <a href="http://localhost:8080/">게시판으로 돌아가기</a>
 </div>
 </body>
 </html>
