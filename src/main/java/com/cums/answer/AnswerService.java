@@ -15,13 +15,14 @@ import java.util.Optional;
 public class AnswerService {
     private final AnswerRepository answerRepository;
 
-    public void create(Question question, String content, SiteUser author){
+    public Answer create(Question question, String content, SiteUser author) { //앵커 기능을 위한 Answer 추가
         Answer answer = new Answer();
         answer.setContent(content);
         answer.setCreateDate(LocalDateTime.now());
         answer.setQuestion(question);
         answer.setAuthor(author);
         this.answerRepository.save(answer);
+        return answer;
     }
     public Answer getAnswer(Integer id) {
         Optional<Answer> answer = this.answerRepository.findById(id);

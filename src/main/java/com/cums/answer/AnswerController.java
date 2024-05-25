@@ -38,8 +38,11 @@ public class AnswerController {
             model.addAttribute("question",question);
             return "question_detail"; //검증에 실패할 경우 다시 답변을 등록할 수 있는 템플릿 출력
         }
-        this.answerService.create(question,answerForm.getContent(),siteUser);
-        return String.format("redirect:/question/detail/%s",id);
+        //앵커 기능을 위한 수정
+        Answer answer = this.answerService.create(question,
+                answerForm.getContent(), siteUser);
+        return String.format("redirect:/question/detail/%s#answer_%s",
+                answer.getQuestion().getId(), answer.getId());
     }
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/modify/{id}")
@@ -63,7 +66,9 @@ public class AnswerController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "수정권한이 없습니다.");
         }
         this.answerService.modify(answer, answerForm.getContent());
-        return String.format("redirect:/question/detail/%s", answer.getQuestion().getId());
+        //앵커 기능을 위한 수정
+        return String.format("redirect:/question/detail/%s#answer_%s",
+                answer.getQuestion().getId(), answer.getId());
     }
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/delete/{id}")
@@ -81,6 +86,8 @@ public class AnswerController {
         Answer answer = this.answerService.getAnswer(id);
         SiteUser siteUser = this.userService.getUser(principal.getName());
         this.answerService.vote(answer, siteUser);
-        return String.format("redirect:/question/detail/%s", answer.getQuestion().getId());
+        //앵커기능을 위한 수정
+        return String.format("redirect:/question/detail/%s#answer_%s",
+                answer.getQuestion().getId(), answer.getId());
     }
 }
