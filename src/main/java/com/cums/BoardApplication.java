@@ -1,13 +1,13 @@
-package com.cums.cumshackathon;
+package com.cums;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CumsHackathonApplication {
+public class BoardApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CumsHackathonApplication.class, args);
+		SpringApplication.run(BoardApplication.class, args);
 	}
 
 }
