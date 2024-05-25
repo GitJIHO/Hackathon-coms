@@ -1,6 +1,7 @@
 package com.cums.question;
 
 
+import com.cums.answer.Answer;
 import com.cums.answer.AnswerForm;
 import com.cums.user.SiteUser;
 import com.cums.user.UserService;
@@ -14,6 +15,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Join;
+import jakarta.persistence.criteria.JoinType;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.security.Principal;
 
@@ -24,9 +32,11 @@ public class QuestionController {
     private final QuestionService questionService;
     private final UserService userService;
     @GetMapping("/list")
-    public String list(Model model,@RequestParam(value="page",defaultValue = "0")int page){ //Model은 클래스와 템플릿 간의 연결 고리 역할, 매개변수에 지정해놓으면 스프링부트가 자동으로 Model 객체 생성
-        Page<Question> paging = this.questionService.getList(page);
-        model.addAttribute("paging",paging);
+    public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page,
+                       @RequestParam(value = "kw", defaultValue = "") String kw) {
+        Page<Question> paging = this.questionService.getList(page, kw);
+        model.addAttribute("paging", paging);
+        model.addAttribute("kw", kw);
         return "question_list";
     }
     @GetMapping(value = "/detail/{id}")
@@ -94,6 +104,23 @@ public class QuestionController {
         SiteUser siteUser = this.userService.getUser(principal.getName());
         this.questionService.vote(question, siteUser);
         return String.format("redirect:/question/detail/%s", id);
+    }
+    private Specification<Question> search(String kw) { //검색 기능
+        return new Specification<>() {
+            private static final long serialVersionUID = 1L;
+            @Override
+            public Predicate toPredicate(Root<Question> q, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                query.distinct(true);  // 중복을 제거
+                Join<Question, SiteUser> u1 = q.join("author", JoinType.LEFT); //질문 작성자 검색
+                Join<Question, Answer> a = q.join("answerList", JoinType.LEFT); // 답변 검색
+                Join<Answer, SiteUser> u2 = a.join("author", JoinType.LEFT); //답변 작성자 검색
+                return cb.or(cb.like(q.get("subject"), "%" + kw + "%"), // 제목
+                        cb.like(q.get("content"), "%" + kw + "%"),      // 내용
+                        cb.like(u1.get("username"), "%" + kw + "%"),    // 질문 작성자
+                        cb.like(a.get("content"), "%" + kw + "%"),      // 답변 내용
+                        cb.like(u2.get("username"), "%" + kw + "%"));   // 답변 작성자
+            }
+        };
     }
 
 }
