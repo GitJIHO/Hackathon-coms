@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            padding-top: 50px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .result {
+            font-size: 1.5em;
+            color: #555;
+            margin-top: 20px;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .percentages {
+            margin-top: 20px;
+            text-align: left;
+            display: inline-block;
+        }
+        .percentages p {
+            margin: 5px 0;
+        }
+        .image {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Analysis Result</h1>
+    <div class="image">
+        <h2>Uploaded Image:</h2>
+        <img src="data:image/jpeg;base64,{{ original_image }}" alt="Uploaded Image" width="300">
+    </div>
+        <div class="image">
+            <h2>Face Extracted:</h2>
+            <img src="data:image/jpeg;base64,{{ face_image }}" alt="Extracted Face" width="300">
+        </div>
+    <div class="result">
+        The emotion detected in the image is: {{ prediction }}
+    </div>
+    <div class="percentages">
+        <h2>Emotion Probabilities:</h2>
+        {% for emotion, percentage in percentages.items() %}
+            <p>{{ emotion }}: {{ percentage }}%</p>
+        {% endfor %}
+    </div>
+    <a href="/">Upload another image</a>
+</body>
+</html>
