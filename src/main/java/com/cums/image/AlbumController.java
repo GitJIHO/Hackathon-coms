@@ -2,6 +2,7 @@ package com.cums.image;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,7 @@ public class AlbumController {
         File folder = new File(folderPath);
         File[] files = folder.listFiles();
         if (files != null) {
+            Arrays.sort(files, (f1, f2) -> f2.getName().compareTo(f1.getName()));
             for (File file : files) {
                 if (file.isFile()) {
                     // 파일의 상대 경로를 리스트에 추가
