@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 import tensorflow as tf
 import requests
-from googletrans import Translator
+from deep_translator import GoogleTranslator
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
@@ -10,6 +10,10 @@ import sys
 import cv2
 import base64
 from langdetect import detect
+from datetime import datetime
+from werkzeug.utils import secure_filename
+from flask import session
+
 
 
 
@@ -35,21 +39,20 @@ def detect_face(img_path):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     # 얼굴 감지
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-    
+
     if len(faces) == 0:
         return None, 'Face not detected'  # 얼굴이 검출되지 않은 경우에도 None과 오류 메시지 반환
-    
+
     # 가장 큰 얼굴 영역 선택
     (x, y, w, h) = sorted(faces, key=lambda x: x[2] * x[3], reverse=True)[0]
-    
+
     # 얼굴 이미지 추출
     face_img = img[y:y+h, x:x+w]
-    
+
     # 이미지 저장 (optional)
     cv2.imwrite('uploads/face_' + os.path.basename(img_path), face_img)
-    
-    return 'uploads/face_' + os.path.basename(img_path), None  # 오류가 없을 때는 None을 반환하고 오류 메시지는 None으로 처리
 
+    return 'uploads/face_' + os.path.basename(img_path), None  # 오류가 없을 때는 None을 반환하고 오류 메시지는 None으로 처리
 
 # 이미지를 Base64로 인코딩하는 함수
 def encode_image(image_path):
@@ -91,23 +94,39 @@ def generate_image(prompt, negative_prompt):
     r.raise_for_status()
     return r.json()
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
+    return render_template('text.html')
+
+@app.route('/text', methods=['GET', 'POST'])
+def text():
     if request.method == 'POST':
-        # 텍스트 입력일 때
         if 'sentence' in request.form:
             sentence = request.form['sentence']
-            response = generate_image(sentence, '')
+            translator = GoogleTranslator(source='auto', target='en')
+            translated_sentence = translator.translate(sentence)
+            response = generate_image(translated_sentence, '')
             image_url = response.get('images')[0].get('image')
             image_data = requests.get(image_url).content
+            # 이미지 파일 이름을 현재 날짜와 시간으로 설정하여 저장
+            current_time = datetime.now().strftime("%Y년 %m월 %d일 %H시 %M분")
+            folder_path = os.path.join('src', 'main','resources', 'static', 'images')
+            os.makedirs(folder_path, exist_ok=True)
+            filename = os.path.join(folder_path, f'{current_time}.png')
+            with open(filename, 'wb') as f:
+                f.write(image_data)
             base64_image = base64.b64encode(image_data).decode('utf-8')
-            return render_template('result_text.html', image=base64_image)
 
-        # 파일 업로드일 때
-        elif 'file' in request.files:
+            return render_template('result_text.html', image=base64_image)
+    return render_template('text.html')
+
+@app.route('/file', methods=['GET', 'POST'])
+def file():
+    if request.method == 'POST':
+        if 'file' in request.files:
             file = request.files['file']
             if file.filename == '':
-                return render_template('index.html', message='No selected file')
+                return render_template('file.html', message='No selected file')
             try:
                 filename = os.path.join('uploads', file.filename)
                 file.save(filename)
@@ -122,10 +141,8 @@ def index():
                     face_image_encoded = encode_image(face_path)
                     return render_template('result_file.html', original_image=original_image_encoded, face_image=face_image_encoded, prediction=emotion, percentages=predictions_percentage)
             except Exception as e:
-                return render_template('index.html', message=str(e))
-
-    return render_template('index.html')
-
+                return render_template('file.html', message=str(e))
+    return render_template('file.html')
 if __name__ == '__main__':
     os.makedirs('uploads', exist_ok=True)
-    app.run(debug=True)
+    app.run(debug=True, port=5000)

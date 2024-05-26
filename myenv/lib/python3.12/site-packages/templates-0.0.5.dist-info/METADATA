@@ -1,0 +1,151 @@
+Metadata-Version: 2.1
+Name: templates
+Version: 0.0.5
+Summary: Python templating library with templates included.
+Home-page: http://www.grantjenks.com/docs/templates/
+Author: Grant Jenks
+Author-email: contact@grantjenks.com
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+
+Python Templates
+================
+
+`Python Templates`_ is an Apache2 licensed `html templating`_ library, written
+in pure-Python, including popular HTML templates like `Bootstrap`_.
+
+.. _`Python Templates`: http://www.grantjenks.com/docs/templates/
+.. _`html templating`: http://www.grantjenks.com/docs/templates/
+.. _`Bootstrap`: https://getbootstrap.com/
+
+TODO
+----
+
+`Python Templates`_ is a work-in-progress.
+
+* Improve semantic components?
+
+  * What should be a function vs class? Currently, it's mostly just inheritance
+    with methods. That feels basic to me. At the other extreme is an
+    element-tree api with visitor pattern. I think the significance of this
+    project is finding the balance between those too.
+
+  * This project seems to go against "flat is better than nested". But I like
+    the idea of using regular Python for template features like: if-statements,
+    for-loops, and inheritance.
+
+* Add more front-end frameworks.
+
+  * Reference: https://github.com/troxler/awesome-css-frameworks
+
+  * Normalize.css
+
+  * Pure.css
+
+  * Milligram.css
+
+  * Bootstrap, add more examples.
+
+  * Semantic UI
+
+  * Foundation
+
+  * Bulma
+
+  * UIkit
+
+  * Materialize
+
+* Demo project ideas:
+
+  * Link shortener
+
+  * E-commerce page
+
+  * Blog
+
+* Include images, fonts, icons?
+
+* See also:
+
+  * Dominate: https://github.com/Knio/dominate
+
+Testimonials
+------------
+
+Does your company or website use `Python Templates`_? Send us a `message
+<contact@grantjenks.com>`_ and let us know.
+
+Features
+--------
+
+- Pure-Python
+- Popular HTML templates included!
+
+Quickstart
+----------
+
+Installing `Python Templates`_ is simple with `pip
+<https://pypi.org/project/pip/>`_::
+
+    $ pip install templates
+
+You can access documentation in the interpreter with Python's built-in `help`
+function. The `help` works on modules, classes and methods in `Python Templates`_.
+
+.. code-block:: python
+
+    >>> import templates
+    >>> help(templates)
+    >>> from templates import bootstrap
+    >>> help(bootstrap)
+    >>> help(bootstrap.Starter)
+    >>> help(bootstrap.Jumbotron)
+
+There's also a demo which you can run using `bottle`_::
+
+    $ pip install bottle
+    $ python -m templates.demo
+
+.. _`bottle`: https://bottlepy.org/
+
+Useful Links
+------------
+
+- `Python Templates Documentation`_
+- `Python Templates at PyPI`_
+- `Python Templates at Github`_
+- `Python Templates Issue Tracker`_
+
+.. _`Python Templates Documentation`: http://www.grantjenks.com/docs/templates/
+.. _`Python Templates at PyPI`: https://pypi.org/project/templates/
+.. _`Python Templates at Github`: https://github.com/grantjenks/python-templates
+.. _`Python Templates Issue Tracker`: https://github.com/grantjenks/python-templates/issues
+
+Python Templates License
+------------------------
+
+Copyright 2018 Grant Jenks
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+
