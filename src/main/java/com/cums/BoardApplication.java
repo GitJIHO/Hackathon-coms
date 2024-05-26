@@ -14,8 +14,8 @@ public class BoardApplication  implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-//		String pythonExecutable = "myenv/bin/python3"; // macOS/Linux
-		 String pythonExecutable = "myenv\\Scripts\\python"; // Windows
+		String pythonExecutable = "myenv/bin/python3"; // macOS/Linux
+//		 String pythonExecutable = "myenv\\Scripts\\python"; // Windows
 
 		String scriptPath = "facedetector.py";
 
