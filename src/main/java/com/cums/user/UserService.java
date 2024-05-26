@@ -36,7 +36,8 @@ public class UserService {
     }
     public String getUserNickname(String username) {
         SiteUser user = userRepository.findByusername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
+           .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
+
         return user.getNickname();
     }
 

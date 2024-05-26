@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Image Generator - Text Input</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f8f8;
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+      padding: 40px;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    input[type="text"] {
+      margin-bottom: 30px; /* 간격을 늘려줍니다 */
+      padding: 15px 16px; /* 텍스트 입력창의 내부 여백을 조절합니다 */
+      width: calc(100% - 32px); /* 입력창의 너비를 조절합니다 */
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="submit"] {
+      margin-top: 10px; /* 버튼과 입력창 사이의 간격을 조절합니다 */
+      padding: 15px 20px; /* 버튼의 내부 여백을 조절합니다 */
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s, transform 0.2s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+      transform: translateY(-2px);
+    }
+
+    input[type="submit"]:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .message {
+      color: red;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>AI 그림일기 생성기</h1>
+  <form action="/text" method="post" enctype="multipart/form-data">
+    <label for="sentence">오늘 하루를 기록하세요</label>
+    <input type="text" id="sentence" name="sentence" required>
+    <input type="submit" value="이미지 생성">
+  </form>
+  {% if message %}
+  <p class="message">{{ message }}</p>
+  {% endif %}
+
+  <br/>
+  <a href="http://localhost:8080/diary">뒤로 가기</a>
+
+</div>
+</body>
+</html>

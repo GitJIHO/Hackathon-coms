@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>앨범</title>
+  <style>
+    /* 앨범 스타일링 */
+    .album {
+      margin: 20px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(calc(33.33% - 20px), 1fr)); /* 한 줄에 3개의 이미지 */
+      gap: 20px;
+    }
+    .album img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능한 것을 나타냄 */
+    }
+    .album img {
+      content: attr(data-filename); /* 이미지 제목 표시 */
+      display: block;
+      margin-top: 5px;
+      font-size: 14px;
+      color: #333;
+    }
+    /* 버튼 스타일링 */
+    .button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    /* 제목 스타일링 */
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: Arial, sans-serif;
+    }
+    /* 모달 스타일링 */
+    .modal {
+      display: none; /* 초기에는 숨김 */
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.9);
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: auto;
+      max-width: 80%;
+      max-height: 80%;
+    }
+    .close {
+      color: #fff;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<!-- 앨범 제목 -->
+<h1>그림일기 앨범</h1>
+<!-- 이미지 그리드 -->
+<div class="album">
+  <!-- 이미지 파일 경로를 Thymeleaf의 반복문을 사용하여 앨범에 추가 -->
+  <div th:each="imagePath : ${imagePaths}">
+    <img th:src="${imagePath}" alt="앨범 사진" data-filename="${imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('.'))}" onclick="openModal(this)">
+    <!-- 이미지 파일명 표시 -->
+    <span th:text="${imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('.'))}" style="display: block; text-align: center; font-family: 'Arial', sans-serif; font-size: 16px; color: #666; margin-top: 5px;"></span>
+  </div>
+</div>
+<!-- 뒤로가기 버튼 -->
+<a class="button" href="/diary">뒤로가기</a>
+
+<!-- 모달 창 -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="img01">
+</div>
+
+<script>
+  // 모달 열기
+  function openModal(img) {
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("img01");
+    modal.style.display = "block";
+    modalImg.src = img.src;
+    modalImg.parentElement.style.display = "flex"; // 이미지를 중앙에 배치하기 위해 부모 요소를 flex로 설정
+  }
+
+  // 모달 닫기
+  function closeModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+  }
+</script>
+
+</body>
+</html>

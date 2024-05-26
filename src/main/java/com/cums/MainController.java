@@ -2,18 +2,34 @@ package com.cums;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MainController {
-    @GetMapping("/sbb")
-    @ResponseBody
-    public String index(){
-        return "하이하이";
 
-    }
     @GetMapping("/")
-    public String root(){
-        return "redirect:/question/list";
+    public String index() {
+        return "index";
     }
+
+    @GetMapping("/redirectToDiary")
+    public String redirectToDiary() {
+        return "redirect:/diary";
+    }
+
+    @GetMapping("/redirectToDiaryAnalysis")
+    public String redirectToDiaryAnalysis() {
+        return "redirect:http://localhost:5000/file";
+    }
+
+    @GetMapping("/redirectToHobbyBoard")
+    public String redirectToHobbyBoard() {
+        return "redirect:http://localhost:8080/question/list";
+    }
+
+    @GetMapping("/myInfo")
+    public String myInfo() {
+        return "myInfo";
+    }
+
+
 }

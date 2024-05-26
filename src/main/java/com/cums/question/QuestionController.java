@@ -35,7 +35,7 @@ public class QuestionController {
     private final UserService userService;
     @GetMapping("/list")
     public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page,
-                       @RequestParam(value = "kw", defaultValue = "") String kw) {
+        @RequestParam(value = "kw", defaultValue = "") String kw) {
         Page<Question> paging = this.questionService.getList(page, kw);
         model.addAttribute("paging", paging);
         model.addAttribute("kw", kw);
@@ -79,7 +79,7 @@ public class QuestionController {
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/modify/{id}") //질문 수정
     public String questionModify(@Valid QuestionForm questionForm, BindingResult bindingResult,
-                                 Principal principal, @PathVariable("id") Integer id) {
+        Principal principal, @PathVariable("id") Integer id) {
         if (bindingResult.hasErrors()) {
             return "question_form";
         }
@@ -118,10 +118,10 @@ public class QuestionController {
                 Join<Question, Answer> a = q.join("answerList", JoinType.LEFT); // 답변 검색
                 Join<Answer, SiteUser> u2 = a.join("author", JoinType.LEFT); //답변 작성자 검색
                 return cb.or(cb.like(q.get("subject"), "%" + kw + "%"), // 제목
-                        cb.like(q.get("content"), "%" + kw + "%"),      // 내용
-                        cb.like(u1.get("username"), "%" + kw + "%"),    // 질문 작성자
-                        cb.like(a.get("content"), "%" + kw + "%"),      // 답변 내용
-                        cb.like(u2.get("username"), "%" + kw + "%"));   // 답변 작성자
+                    cb.like(q.get("content"), "%" + kw + "%"),      // 내용
+                    cb.like(u1.get("username"), "%" + kw + "%"),    // 질문 작성자
+                    cb.like(a.get("content"), "%" + kw + "%"),      // 답변 내용
+                    cb.like(u2.get("username"), "%" + kw + "%"));   // 답변 작성자
             }
         };
     }

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generated Image - Text</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f8f8;
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+      padding: 40px;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #333;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    a:hover {
+      background-color: #0056b3;
+    }
+
+    .album {
+      margin-top: 30px;
+    }
+
+    .album img {
+      width: 200px;
+      height: auto;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Generated Image</h1>
+  <img src="data:image/png;base64,{{ image }}" alt="Generated Image">
+  <br/>
+  <div style="margin-top: 10px"></div>
+  <br/>
+  <!-- "다른 글 작성하기" 링크 -->
+  <div style="margin-top: 10px"></div>
+  <br/>
+  <a href="/text">다른 글로 AI 그림일기 생성하기</a>
+  <!-- "게시판으로 돌아가기" 링크 -->
+  <div style="margin-top: 10px"></div>
+  <br/>
+  <a href="http://localhost:8080/diary">달력으로 돌아가기</a>
+  <br/>
+  <a href="http://localhost:8080/album">앨범 보기</a>
+</div>
+</body>
+</html>

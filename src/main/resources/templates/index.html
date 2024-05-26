@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Main Page</title>
+  <style>
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+<h1>Welcome to DIALOG</h1>
+<div class="button-container">
+  <form action="/redirectToDiary" method="get">
+    <button class="button" type="submit">AI그림일기</button>
+  </form>
+  <form action="/redirectToDiaryAnalysis" method="get">
+    <button class="button" type="submit">그림일기 분석</button>
+  </form>
+  <form action="/redirectToHobbyBoard" method="get">
+    <button class="button" type="submit">취미 게시판</button>
+  </form>
+  <form action="/myInfo" method="get">
+    <button class="button" type="submit">내 정보</button>
+  </form>
+</div>
+</body>
+</html>
