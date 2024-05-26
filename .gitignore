@@ -36,8 +36,7 @@ out/
 ### VS Code ###
 .vscode/
 
-src/main/resources/static/images/
-uploads/
+
 myenv/
 
 #REST_API_KEY 저장소
