@@ -39,3 +39,9 @@ out/
 src/main/resources/static/images/
 uploads/
 myenv/
+
+#REST_API_KEY 저장소
+config.py
+
+#윈도우와 MAC 설정 다름
+src/main/java/com/cums/BoardApplication.java
