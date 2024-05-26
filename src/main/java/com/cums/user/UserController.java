@@ -4,13 +4,18 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.security.Principal;
 
 @RequiredArgsConstructor
 @Controller
@@ -54,5 +59,16 @@ public class UserController {
     @GetMapping("/login")
     public String login(){
         return "login_form";
+    }
+
+    @PostMapping("/updateNickname") //이름 변경
+    public String updateNickname(@AuthenticationPrincipal User principal, @RequestParam String newNickname) {
+        String username = principal.getUsername();
+        userService.updateNickname(username, newNickname);
+        return "myinfo";
+    }
+    @GetMapping("/update_nickname") //이름 변경
+    public String showUpdateNicknameForm() {
+        return "update_nickname"; // update_nickname.html의 이름
     }
 }

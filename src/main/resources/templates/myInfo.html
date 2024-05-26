@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Info</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+    <!-- sbb CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
 </head>
 <body>
-<h1>My Info</h1>
-<p>This page is under construction.</p>
-<a href="/">Back to Main Page</a>
+<div class="container">
+    <h1 class="mt-5">내 정보</h1>
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item" sec:authorize="isAuthenticated()">
+            <span class="nav-link">
+                <i class="fa-solid fa-user"></i>
+                <span th:text="${@userService.getUserNickname(#authentication.principal.username)}"></span>님 환영합니다!
+            </span>
+        </li>
+    </ul>
+
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3 text-center">
+            <form action="/user/update_nickname" method="get">
+                <button class="btn btn-primary mb-3" type="submit">이름 변경</button>
+            </form>
+            <a class="btn btn-primary" href="/">돌아가기</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
 </body>
 </html>

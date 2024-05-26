@@ -41,5 +41,14 @@ public class UserService {
         return user.getNickname();
     }
 
+    public void updateNickname(String username, String newNickname) {
+        SiteUser user = userRepository.findByusername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
+        user.setNickname(newNickname);
+        userRepository.save(user);
+    }
+
+
+
 
 }

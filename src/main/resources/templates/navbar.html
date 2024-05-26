@@ -21,7 +21,7 @@
                 <li class="nav-item" sec:authorize="isAuthenticated()">
                     <span class="nav-link">
                         <i class="fa-solid fa-user"></i>
-                        <span th:text="${@userService.getUserNickname(#authentication.principal.username)}"></span>님
+                        <a th:href="@{/myInfo}"><span th:text="${@userService.getUserNickname(#authentication.principal.username)}"></span></a>님
                     </span>
                 </li>
             </ul>
