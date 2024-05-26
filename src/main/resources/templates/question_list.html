@@ -3,7 +3,6 @@
     <div class="row my-3">
         <div class="col-6">
             <a th:href="@{/question/create}" class="btn btn-primary">질문 등록하기</a>
-            <a th:href="@{http://localhost:5000/}" class="btn btn-primary">그림일기 업로드 및 일기 작성하기</a>
         </div>
         <div class="col-6">
             <div class="input-group">
@@ -62,6 +61,7 @@
         <input type="hidden" id="kw" name="kw" th:value="${kw}">
         <input type="hidden" id="page" name="page" th:value="${paging.number}">
     </form>
+    <a href="/" class="btn btn-primary mt-3">뒤로 가기</a>
 </div>
 <script layout:fragment="script" type='text/javascript'>
     const page_elements = document.getElementsByClassName("page-link");
