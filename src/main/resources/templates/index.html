@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="ko" layout:decorate="~{layout}">
+
 <head>
   <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
   <meta charset="UTF-8">
-  <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0 maximum-scale=1.0,
-        user-scalable=0"
-  />
-  <link rel="icon" type="image/png" href="assets/text_logo.png"> <!-- 탭 옆에 아이콘 안 뜸... -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0,
+        user-scalable=0" />
+  <link rel="icon" type="image/png" href="assets/text_logo.png">
   <title>Main Page</title>
+  <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Image Generator - Text Input</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
   <style>
     body {
       margin: 0;
       padding: 0;
       background-color: #FFFFF4;
       margin-top: 60px;
-      font-family: Arial, sans-serif;    }
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 21px;
+      font-weight: 200;
+      /* 가벼운 글씨 */
+    }
 
     .button-container {
       display: flex;
@@ -24,12 +33,13 @@
       align-items: center;
       margin-top: 20px;
     }
+
     .button {
-      width: 300px;
-      height: 50px;
+      width: 320px;
+      height: 70px;
       margin-bottom: 30px;
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: 20px;
       cursor: pointer;
       background-color: #D3A472;
       color: #fff;
@@ -37,53 +47,117 @@
       border-radius: 10px;
       text-align: center;
       text-decoration: none;
+      opacity: 0.7;
       transition: background-color 0.3s, transform 0.2s;
 
     }
+
     .button:hover {
-      background-color: #45a049;
+      background-color: #2E1C03;
       box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
       transform: translateY(-2px);
     }
 
-    .button:active{
+    .button:active {
       transform: translateY(0);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
     }
 
+    .inform {
+      text-align: center;
+      font-size: 20px;
+      color: #6D593A;
+      font-weight: 300;
+      /* 두꺼운 글씨 */
+      margin-top: 50px;
+      margin-left: -140px;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
 
+    .text1 {
+      text-align: center;
+      font-size: 16px;
+      color: #6D593A;
+      font-weight: 300;
+      /* 두꺼운 글씨 */
+      margin-top: -25px;
+      margin-left: -32px;
+    }
 
+    .text1_2 {
+      margin-left: -60px;
+    }
 
+    .text2 {
+      text-align: center;
+      font-size: 16px;
+      color: #6D593A;
+      font-weight: 300;
+      /* 두꺼운 글씨 */
+      margin-top: -25px;
+      margin-left: -75px;
+    }
+
+    .text2_2 {
+      margin-left: -120px;
+    }
+
+    .text3 {
+      text-align: center;
+      font-size: 16px;
+      color: #6D593A;
+      font-weight: 300;
+      /* 두꺼운 글씨 */
+      margin-top: -25px;
+      margin-left: -21px;
+    }
   </style>
 </head>
-<body >
+
+<body>
 <div class="container my-3">
   <th:block layout:fragment="content">
-    <br/>
-    <br/>
-    <br/>
+    <br />
+    <br />
+    <br />
     <div>
-      <p style="text-align: center;">당신의 하루는 정말 소중하니까</p><br/>
-      <p style="text-align: center;">평범한 일상도 특별한 의미로 남을 수 있게</p><br/>
-      <p style="text-align: center;">다이어리&취미 공유 서비스</p><br/>
+      <p style="text-align: center;">당신은 이 세상 무엇보다 반짝이니까</p><br />
+      <p style="text-align: center;">평범한 하루도 특별할 수 있게</p><br />
+      <p style="text-align: center;">AI 기반 일상 기록&커뮤니티 플랫폼</p><br />
     </div>
+    <br />
     <div>
-      <img src="https://i.ibb.co/x5vK0Ly/main-room.png" alt="background img1" style="display: block; margin-left: auto; margin-right: auto; width: 90%;"> <!-- 이미지 가져오기 안 됨... -->
-      </br>
-      </br>
-      </br>
-      <img src="https://i.ibb.co/w4XjjtW/main-hobanwoo.png" alt="background img1" style="display: block; margin-left: auto; margin-right: auto; width: 90%;"> <!-- 이미지 가져오기 안 됨... -->
+      <img src="https://i.ibb.co/x5vK0Ly/main-room.png" alt="background img1"
+           style="display: block; margin-left: auto; margin-right: auto; width: 100%;">
+      <br />
+      <br />
+      <br />
+      <img src="https://i.ibb.co/w4XjjtW/main-hobanwoo.png" alt="background img1"
+           style="display: block; margin-left: auto; margin-right: auto; width: 100%;">
     </div>
+    <div class="inform">이렇게 서비스를 이용해요!</div>
     <div class="button-container">
       <form action="/redirectToDiary" method="get">
-        <button class="button" type="submit">AI그림일기</button>
+        <button class="button" type="submit">한줄한컷</button>
       </form>
+      <div class="text1">
+        <div class="text1_1">:오늘 기억에 남는 일을 한 줄로 작성하면<br /></div>
+        <div class="text1_2">AI가 사진 한 컷을 만들어줘요!</div><br />
+      </div>
       <form action="/redirectToDiaryAnalysis" method="get">
-        <button class="button" type="submit">그림일기 분석</button>
+        <button class="button" type="submit">얼굴 찌푸리지 말아요</button>
       </form>
+      <div class="text2">
+        <div class="text2_1">:당신의 표정을 AI가 분석해드려요<br /></div>
+        <div class="text2_2">활짝 웃어봐요!</div><br/>
+      </div>
       <form action="/redirectToHobbyBoard" method="get">
         <button class="button" type="submit">취미 게시판</button>
       </form>
+      <div class="text3">
+        :새로운 취미를 찾고, 사람들과 공유해봐요!
+      </div> <br />
       <form action="/myInfo" method="get">
         <button class="button" type="submit">내 정보</button>
       </form>
@@ -93,4 +167,5 @@
 
 
 </body>
+
 </html>
