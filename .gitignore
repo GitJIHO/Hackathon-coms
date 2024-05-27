@@ -45,3 +45,6 @@ config.py
 #사진 저장소
 src/main/resources/static/images/
 uploads/
+
+#메인
+src/main/java/com/cums/BoardApplication.java
