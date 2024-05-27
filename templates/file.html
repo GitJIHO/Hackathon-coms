@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
 
   <meta charset="UTF-8">
@@ -11,6 +14,8 @@
   <style>
 
     body {
+      font-family: 'Noto Sans KR', sans-serif;
+
       /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
       margin: 0;
       padding: 0;
@@ -52,7 +57,7 @@
     input[type="file"] {
       margin-bottom: 20px;
       padding: 12px 16px;
-      width: 100%; /* 화면 너비의 40%로 설정 */
+      width: 100%;
       box-sizing: border-box;
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -138,16 +143,16 @@
           <a class="nav-link" href="/redirectToMain2">메인화면</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/redirectToDiary2">AI그림일기</a>
+          <a class="nav-link" href="/redirectToDiary2">한줄한컷</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/redirectToAlbum2">AI그림일기 앨범</a>
+          <a class="nav-link" href="/redirectToAlbum2">한줄한컷 앨범</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/file">그림일기 분석</a>
+          <a class="nav-link" href="/file">얼굴 찌뿌리지 말아요</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/redirectToBoard2">취미 게시판</a>
+          <a class="nav-link" href="/redirectToBoard2">쉼터</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/redirectToMyinfo2">내 정보</a>
@@ -158,11 +163,11 @@
 </nav>
 
 <div class="container">
-  <h1 style="text-align: center;">AI 그림일기 분석기</h1>
+  <h1 style="text-align: center;">얼굴 찌뿌리지 말아요</h1>
   <form action="/file" method="post" enctype="multipart/form-data">
-    <label for="file">분석을 원하는 이미지 파일을 올려주세요</label>
+    <label for="file">여러분의 얼굴을 찍어 올려주세요</label>
     <input type="file" id="file" name="file" accept="image/*" required>
-    <input type="submit" value="이미지 업로드">
+    <input type="submit" value="사진 업로드">
   </form>
   {% if message %}
   <p class="message">{{ message }}</p>

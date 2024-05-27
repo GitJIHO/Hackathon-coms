@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +12,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body {
+      font-family: 'Noto Sans KR', sans-serif;
+
       /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
       margin: 0;
       padding: 0;
@@ -118,16 +123,16 @@
           <a class="nav-link" href="/redirectToMain2">메인화면</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/redirectToDiary2">AI그림일기</a>
+          <a class="nav-link" href="/redirectToDiary2">한줄한컷</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/redirectToAlbum2">AI그림일기 앨범</a>
+          <a class="nav-link" href="/redirectToAlbum2">한줄한컷 앨범</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/file">그림일기 분석</a>
+          <a class="nav-link" href="/file">얼굴 찌뿌리지 말아요</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/redirectToBoard2">취미 게시판</a>
+          <a class="nav-link" href="/redirectToBoard2">쉼터</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/redirectToMyinfo2">내 정보</a>
@@ -138,11 +143,11 @@
 </nav>
 
 <div class="container">
-  <h1 style="text-align: center;">그림일기</h1>
+  <h1 style="text-align: center;">한줄한컷</h1>
   <form action="/text" method="post" enctype="multipart/form-data">
-    <label for="sentence">오늘 하루를 기록하세요</label>
+    <label for="sentence">뭐든 좋아요! 오늘의 한줄을 기록해봐요</label>
     <textarea id="sentence" name="sentence" required></textarea>
-    <input type="submit" value="이미지 생성">
+    <input type="submit" value="한컷 생성">
   </form>
   {% if message %}
   <p class="message">{{ message }}</p>

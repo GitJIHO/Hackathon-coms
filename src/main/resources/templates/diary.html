@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko" layout:decorate="~{layout}">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
   <meta charset="UTF-8">
   <title>Diary</title>
   <style>
     body {
+      font-family: 'Noto Sans KR', sans-serif;
+
       background-color: #FFFFF4; /* 연한 베이지 */
       margin-top: 60px;
     }
@@ -94,10 +99,10 @@
       </th:block>
     </div>
     <form action="/redirectToText" method="get">
-      <button class="button" type="submit">AI 그림일기 작성</button>
+      <button class="button" type="submit">AI 한컷 생성</button>
     </form>
     <form action="/album" method="get">
-      <button class="button" type="submit">앨범 보기</button>
+      <button class="button" type="submit">한줄한컷 앨범</button>
     </form>
     <form action="/" method="get">
       <button class="button" type="submit">메인으로 돌아가기</button>

@@ -2,6 +2,9 @@
 <html lang="ko" layout:decorate="~{layout}">
 
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0,
@@ -17,6 +20,8 @@
 
   <style>
     body {
+      font-family: 'Noto Sans KR', sans-serif;
+
       margin: 0;
       padding: 0;
       background-color: #FFFFF4;
@@ -110,8 +115,13 @@
       font-weight: 300;
       /* 두꺼운 글씨 */
       margin-top: -25px;
-      margin-left: -21px;
+      margin-left: -85px;
     }
+
+    .text3_2 {
+      margin-left: -94px;
+    }
+
   </style>
 </head>
 
@@ -153,11 +163,12 @@
         <div class="text2_2">활짝 웃어봐요!</div><br/>
       </div>
       <form action="/redirectToHobbyBoard" method="get">
-        <button class="button" type="submit">취미 게시판</button>
+        <button class="button" type="submit">쉼터</button>
       </form>
       <div class="text3">
-        :새로운 취미를 찾고, 사람들과 공유해봐요!
-      </div> <br />
+        <div class="text3_1">:잠시 쉬어가며 여러분의 취미를<br /></div>
+        <div class="text3_2">함께 공유해봐요</div><br/>
+      </div>
       <form action="/myInfo" method="get">
         <button class="button" type="submit">내 정보</button>
       </form>
