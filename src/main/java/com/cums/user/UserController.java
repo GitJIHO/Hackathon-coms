@@ -60,7 +60,7 @@ public class UserController {
     public String updateNickname(@AuthenticationPrincipal User principal, @RequestParam String newNickname) {
         String username = principal.getUsername();
         userService.updateNickname(username, newNickname);
-        return "myinfo";
+        return "myInfo";
     }
     @GetMapping("/update_nickname") //이름 변경
     public String showUpdateNicknameForm() {
