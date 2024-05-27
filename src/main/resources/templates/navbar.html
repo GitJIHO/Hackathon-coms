@@ -23,7 +23,9 @@
                     <a class="nav-link" th:href="@{/album}">AI그림일기 앨범</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{http://localhost:5000/file}">그림일기 분석</a>
+                    <form action="/redirectToDiaryAnalysis" method="get">
+                        <button class="nav-link">그림일기 분석</button>
+                    </form>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/question/list}">취미 게시판</a>

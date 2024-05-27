@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template ,redirect
 import tensorflow as tf
 import requests
 from deep_translator import GoogleTranslator
@@ -138,6 +138,22 @@ def file():
             except Exception as e:
                 return render_template('file.html', message=str(e))
     return render_template('file.html')
+
+import url8080
+url = url8080.url
+
+@app.route("/redirectToMain2")
+def redirect_to_main():
+    return redirect(url)
+
+@app.route("/redirectToDiary2")
+def redirect_to_diary():
+    return redirect(url+"/diary")
+
+@app.route("/redirectToAlbum2")
+def redirect_to_album():
+    return redirect(url+"/album")
+
 if __name__ == '__main__':
     os.makedirs('uploads', exist_ok=True)
     app.run(debug=True, port=5000)
