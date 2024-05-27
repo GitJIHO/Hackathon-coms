@@ -115,6 +115,7 @@ def text():
             return render_template('result_text.html', image=base64_image)
     return render_template('text.html')
 
+
 @app.route('/file', methods=['GET', 'POST'])
 def file():
     if request.method == 'POST':
