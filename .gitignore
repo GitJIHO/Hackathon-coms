@@ -45,3 +45,7 @@ config.py
 #사진 저장소
 src/main/resources/static/images/
 uploads/
+
+#os 차이로 인한 변경 불가
+src/main/java/com/cums/BoardApplication.java
+facedetector.py
