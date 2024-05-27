@@ -50,3 +50,5 @@ uploads/
 src/main/java/com/cums/BoardApplication.java
 
 facedetector.py
+
+src/main/java/com/cums/image/AlbumController.java
