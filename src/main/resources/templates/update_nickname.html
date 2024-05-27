@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+    <!-- sbb CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<h1>이름 수정</h1>
+
+<form th:action="@{/user/updateNickname}" method="post">
+    <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label for="newNickname" class="col-form-label">수정할 이름</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" id="newNickname" class="form-control" name="newNickname" aria-describedby="newNicknameHelpInline">
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary"type="submit">확인</button>
+        </div>
+    </div>
+<!--    <label  for="newNickname">수정할 닉네임:</label>-->
+<!--    <input class="form-control" type="text" id="newNickname" name="newNickname" required>-->
+<!--    <button class="btn btn-primary"type="submit">확인</button>-->
+</form>
+
+
+</div>
+
+</html>
