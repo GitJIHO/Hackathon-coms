@@ -16,7 +16,7 @@ public class AlbumController {
     public String album(Model model) {
         // 이미지가 저장된 폴더 경로
 
-        String folderPath = "src/main/resources/static/images";
+        String folderPath = "Hackathon-coms//src//main//resources//static//images";
 
 
         // 폴더 내의 이미지 파일 경로를 저장할 리스트

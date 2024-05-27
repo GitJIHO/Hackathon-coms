@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BoardApplication  implements CommandLineRunner {
+public class BoardApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BoardApplication.class, args);
@@ -14,10 +14,10 @@ public class BoardApplication  implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		String pythonExecutable = "myenv/bin/python3"; // macOS/Linux
-//		 String pythonExecutable = "myenv\\Scripts\\python"; // Windows
+		// String pythonExecutable = "myenv/bin/python3"; // macOS/Linux
+		String pythonExecutable = "myenv\\Scripts\\python"; // Windows
 
-		String scriptPath = "facedetector.py";
+		String scriptPath = "C:\\Users\\rldud\\OneDrive\\바탕 화면\\Glow 해커톤 준비\\coms\\Hackathon-coms\\facedetector.py";
 
 		try {
 			ProcessBuilder processBuilder = new ProcessBuilder(pythonExecutable, scriptPath);

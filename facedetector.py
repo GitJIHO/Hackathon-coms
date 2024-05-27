@@ -20,7 +20,7 @@ sys.setrecursionlimit(10000)
 app = Flask(__name__)
 
 # 모델 로드
-model = load_model('emotion_model.h5')
+model = load_model('C:\\Users\\rldud\\OneDrive\\바탕 화면\\Glow 해커톤 준비\\coms\\Hackathon-coms\\emotion_model.h5')
 
 # 감정 레이블
 emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
@@ -105,7 +105,7 @@ def text():
             image_data = requests.get(image_url).content
             # 이미지 파일 이름을 현재 날짜와 시간으로 설정하여 저장
             current_time = datetime.now().strftime("%Y년 %m월 %d일 %H시 %M분")
-            folder_path = os.path.join('src', 'main','resources', 'static', 'images')
+            folder_path = os.path.join('Hackathon-coms', 'src', 'main','resources', 'static', 'images')
             os.makedirs(folder_path, exist_ok=True)
             filename = os.path.join(folder_path, f'{current_time}.png')
             with open(filename, 'wb') as f:
