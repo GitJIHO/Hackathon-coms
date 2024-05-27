@@ -1,11 +1,14 @@
 
 
 <!DOCTYPE html>
-<html lang="en" layout:decorate="~{layout}">
+<html lang="ko" layout:decorate="~{layout}">
 <head>
   <meta charset="UTF-8">
   <title>Diary</title>
   <style>
+    body {
+      background-color: #FFFFF4; /* 연한 베이지 */
+    }
     .calendar {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -65,7 +68,7 @@
     <form action="/redirectToText" method="get">
       <button class="button" type="submit">AI 그림일기 작성</button>
     </form>
-    <form action="/redirectToAlbum" method="get">
+    <form action="/album" method="get">
       <button class="button" type="submit">앨범 보기</button>
     </form>
     <form action="/redirectToMain" method="get">

@@ -4,3 +4,6 @@ textarea{
 input[type=submit]{
     margin-top : 10px;
 }
+body {
+    background-color: #FFFFF4; /* 연한 베이지 */
+}
