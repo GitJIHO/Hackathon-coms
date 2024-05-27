@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="ko" layout:decorate="~{layout}">
 <head>
@@ -16,10 +14,19 @@
       max-width: 400px;
       margin: auto;
     }
-    .day, .weekday {
+    .day {
+      position: relative;
       padding: 10px;
       text-align: center;
       border: 1px solid #ddd;
+      min-height: 50px;
+    }
+    .weekday {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+      font-weight: bold;
+      background-color: #f0f0f0;
     }
     .highlight {
       background-color: #ffeb3b;
@@ -60,10 +67,18 @@
       <h2 th:text="${year} + '년 ' + ${month} + '월'"></h2>
     </div>
     <div class="calendar">
-      <div th:each="day : ${daysOfWeek}" class="weekday" th:text="${day}"></div>
-      <div th:each="date, iterStat : ${dates}" th:classappend="${date == today} ? ' highlight' : ''">
-        <div class="day" th:text="${date != null ? date.dayOfMonth : ''}"></div>
-      </div>
+      <div class="weekday">일</div>
+      <div class="weekday">월</div>
+      <div class="weekday">화</div>
+      <div class="weekday">수</div>
+      <div class="weekday">목</div>
+      <div class="weekday">금</div>
+      <div class="weekday">토</div>
+      <th:block th:each="date, iterStat : ${dates}">
+        <div class="day" th:classappend="${date == today} ? ' highlight' : ''">
+          <span th:text="${date != null ? date.dayOfMonth : ''}"></span>
+        </div>
+      </th:block>
     </div>
     <form action="/redirectToText" method="get">
       <button class="button" type="submit">AI 그림일기 작성</button>
