@@ -46,5 +46,6 @@ config.py
 src/main/resources/static/images/
 uploads/
 
-#메인
+#os 차이로 인한 변경 불가
 src/main/java/com/cums/BoardApplication.java
+facedetector.py
