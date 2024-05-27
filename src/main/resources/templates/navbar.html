@@ -1,5 +1,5 @@
 <nav th:fragment="navbarFragment" class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(211, 164, 114, 0.9); position: fixed; top: 0; width: 100%;">
-<div class="container-fluid">
+    <div class="container-fluid">
         <a class="navbar-brand" href="/" style="color: #FFFFFF;">DIALOG</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,33 +8,33 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #FFFFFF;" th:href="@{/}">메인화면</a>
+                    <a class="nav-link" style="color: #FFFFFF; font-weight: bold;" th:href="@{/}">메인화면</a>
                 </li>
                 <li class="nav-item" sec:authorize="isAnonymous()">
-                    <a class="nav-link" style="color: #FFFFFF;" th:href="@{/user/login}">로그인</a>
+                    <a class="nav-link" style="color: #FFFFFF; font-weight: bold;" th:href="@{/user/login}">로그인</a>
                 </li>
                 <li class="nav-item" sec:authorize="isAuthenticated()">
-                    <a class="nav-link" style="color: #FFFFFF;" th:href="@{/user/logout}">로그아웃</a>
+                    <a class="nav-link" style="color: #FFFFFF; font-weight: bold;" th:href="@{/user/logout}">로그아웃</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #FFFFFF;" th:href="@{/diary}">AI그림일기</a>
+                    <a class="nav-link" style="color: #FFFFFF; font-weight: bold;" th:href="@{/diary}">AI그림일기</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #FFFFFF;" th:href="@{/album}">AI그림일기 앨범</a>
+                    <a class="nav-link" style="color: #FFFFFF; font-weight: bold;" th:href="@{/album}">AI그림일기 앨범</a>
                 </li>
                 <li class="nav-item">
                     <form action="/redirectToDiaryAnalysis" method="get">
-                        <button class="nav-link" style="color: #FFFFFF;">그림일기 분석</button>
+                        <button class="nav-link" style="color: #FFFFFF; font-weight: bold;">그림일기 분석</button>
                     </form>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #FFFFFF;" th:href="@{/question/list}">취미 게시판</a>
+                    <a class="nav-link" style="color: #FFFFFF; font-weight: bold;" th:href="@{/question/list}">취미 게시판</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #FFFFFF;" th:href="@{/myInfo}">내 정보</a>
+                    <a class="nav-link" style="color: #FFFFFF; font-weight: bold;" th:href="@{/myInfo}">내 정보</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #FFFFFF;" th:href="@{/user/signup}">회원가입</a>
+                    <a class="nav-link" style="color: #FFFFFF; font-weight: bold;" th:href="@{/user/signup}">회원가입</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
