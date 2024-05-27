@@ -6,4 +6,6 @@ input[type=submit]{
 }
 body {
     background-color: #FFFFF4; /* 연한 베이지 */
+    margin-top: 80px;
+
 }

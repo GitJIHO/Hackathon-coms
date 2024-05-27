@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" layout:decorate="~{layout}">
+<html lang="ko" layout:decorate="~{layout}">
 <head>
+  <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
   <meta charset="UTF-8">
   <meta
       name="viewport"
@@ -11,8 +12,11 @@
   <title>Main Page</title>
   <style>
     body {
-      background-color: #FFFFF4; /* 연한 베이지 */
-    }
+      margin: 0;
+      padding: 0;
+      background-color: #FFFFF4;
+      margin-top: 60px;
+      font-family: Arial, sans-serif;    }
 
     .button-container {
       display: flex;
@@ -28,16 +32,28 @@
       font-size: 16px;
       cursor: pointer;
       background-color: #D3A472;
-      color: #2E1C03;
+      color: #fff;
       border: none;
       border-radius: 10px;
       text-align: center;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.2s;
+
     }
     .button:hover {
       background-color: #45a049;
       box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
       transform: translateY(-2px);
     }
+
+    .button:active{
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+    }
+
+
+
+
   </style>
 </head>
 <body >

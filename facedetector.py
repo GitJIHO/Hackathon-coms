@@ -154,6 +154,14 @@ def redirect_to_diary():
 def redirect_to_album():
     return redirect(url+"/album")
 
+@app.route("/redirectToBoard2")
+def redirect_to_board():
+    return redirect(url+"/question/list")
+
+@app.route("/redirectToMyinfo2")
+def redirect_to_myinfo():
+    return redirect(url+"/myInfo")
+
 if __name__ == '__main__':
     os.makedirs('uploads', exist_ok=True)
     app.run(debug=True, port=5000)
