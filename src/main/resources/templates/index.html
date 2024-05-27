@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" layout:decorate="~{layout}">
 <head>
   <meta charset="UTF-8">
   <title>Main Page</title>
@@ -24,21 +24,28 @@
     }
   </style>
 </head>
-<body>
-<h1>Welcome to DIALOG</h1>
-<div class="button-container">
-  <form action="/redirectToDiary" method="get">
-    <button class="button" type="submit">AI그림일기</button>
-  </form>
-  <form action="/redirectToDiaryAnalysis" method="get">
-    <button class="button" type="submit">그림일기 분석</button>
-  </form>
-  <form action="/redirectToHobbyBoard" method="get">
-    <button class="button" type="submit">취미 게시판</button>
-  </form>
-  <form action="/myInfo" method="get">
-    <button class="button" type="submit">내 정보</button>
-  </form>
+<body >
+<div class="container my-3">
+  <th:block layout:fragment="content">
+    <br/>
+    <h1 style="text-align: center;">Welcome to DIALOG</h1>
+    <div class="button-container">
+      <form action="/redirectToDiary" method="get">
+        <button class="button" type="submit">AI그림일기</button>
+      </form>
+      <form action="/redirectToDiaryAnalysis" method="get">
+        <button class="button" type="submit">그림일기 분석</button>
+      </form>
+      <form action="/redirectToHobbyBoard" method="get">
+        <button class="button" type="submit">취미 게시판</button>
+      </form>
+      <form action="/myInfo" method="get">
+        <button class="button" type="submit">내 정보</button>
+      </form>
+    </div>
+  </th:block>
 </div>
+
+
 </body>
 </html>
