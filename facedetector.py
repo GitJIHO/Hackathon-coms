@@ -9,18 +9,13 @@ import os
 import sys
 import cv2
 import base64
-from langdetect import detect
 from datetime import datetime
-from werkzeug.utils import secure_filename
-from flask import session
 
-
-
+#REST_API_KEY값 분리
+import config
 
 # 재귀 깊이 제한 증가 (일시적인 해결책)
 sys.setrecursionlimit(10000)
-
-REST_API_KEY = 'a98c47a7fdcca1ecc24765726681da78'
 
 app = Flask(__name__)
 
@@ -87,7 +82,7 @@ def generate_image(prompt, negative_prompt):
             'negative_prompt': negative_prompt
         },
         headers={
-            'Authorization': f'KakaoAK {REST_API_KEY}',
+            'Authorization': f'KakaoAK {config.REST_API_KEY}',
             'Content-Type': 'application/json'
         }
     )

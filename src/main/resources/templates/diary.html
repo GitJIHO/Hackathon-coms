@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" layout:decorate="~{layout}">
 <head>
   <meta charset="UTF-8">
   <title>Diary</title>
@@ -47,21 +47,26 @@
   </style>
 </head>
 <body>
-<div class="header">
-  <h1>Diary for This Month</h1>
-  <h2 th:text="${year} + '년 ' + ${month} + '월'"></h2>
-</div>
-<div class="calendar">
-  <div th:each="day : ${daysOfWeek}" class="weekday" th:text="${day}"></div>
-  <div th:each="date, iterStat : ${dates}" th:classappend="${date == today} ? ' highlight' : ''">
-    <div class="day" th:text="${date != null ? date.dayOfMonth : ''}"></div>
-  </div>
-</div>
+<div class="container my-3">
+  <th:block layout:fragment="content">
+    <div class="header">
+      <br/>
+      <h1>Diary for This Month</h1>
+      <h2 th:text="${year} + '년 ' + ${month} + '월'"></h2>
+    </div>
+    <div class="calendar">
+      <div th:each="day : ${daysOfWeek}" class="weekday" th:text="${day}"></div>
+      <div th:each="date, iterStat : ${dates}" th:classappend="${date == today} ? ' highlight' : ''">
+        <div class="day" th:text="${date != null ? date.dayOfMonth : ''}"></div>
+      </div>
+    </div>
 
-<a class="button" href="http://localhost:5000/text">AI 그림일기 작성</a>
-<a class="button" href="/album">앨범 보기</a>
+    <a class="button" href="http://localhost:5000/text">AI 그림일기 작성</a>
+    <a class="button" href="/album">앨범 보기</a>
 
-<a class="button" href="/">메인으로 돌아가기</a>
+    <a class="button" href="/">메인으로 돌아가기</a>
+  </th:block>
+</div>
 
 </body>
 </html>

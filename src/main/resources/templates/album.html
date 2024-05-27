@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
 <head>
   <meta charset="UTF-8">
   <title>앨범</title>
@@ -72,25 +72,31 @@
   </style>
 </head>
 <body>
-<!-- 앨범 제목 -->
-<h1>그림일기 앨범</h1>
-<!-- 이미지 그리드 -->
-<div class="album">
-  <!-- 이미지 파일 경로를 Thymeleaf의 반복문을 사용하여 앨범에 추가 -->
-  <div th:each="imagePath : ${imagePaths}">
-    <img th:src="${imagePath}" alt="앨범 사진" data-filename="${imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('.'))}" onclick="openModal(this)">
-    <!-- 이미지 파일명 표시 -->
-    <span th:text="${imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('.'))}" style="display: block; text-align: center; font-family: 'Arial', sans-serif; font-size: 16px; color: #666; margin-top: 5px;"></span>
-  </div>
-</div>
-<!-- 뒤로가기 버튼 -->
-<a class="button" href="/diary">뒤로가기</a>
+<div class="container my-3">
+  <th:block layout:fragment="content">
+    <br/>
+    <!-- 앨범 제목 -->
+    <h1>그림일기 앨범</h1>
+    <!-- 이미지 그리드 -->
+    <div class="album">
+      <!-- 이미지 파일 경로를 Thymeleaf의 반복문을 사용하여 앨범에 추가 -->
+      <div th:each="imagePath : ${imagePaths}">
+        <img th:src="${imagePath}" alt="앨범 사진" data-filename="${imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('.'))}" onclick="openModal(this)">
+        <!-- 이미지 파일명 표시 -->
+        <span th:text="${imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('.'))}" style="display: block; text-align: center; font-family: 'Arial', sans-serif; font-size: 16px; color: #666; margin-top: 5px;"></span>
+      </div>
+    </div>
+    <!-- 뒤로가기 버튼 -->
+    <a class="button" href="/diary">뒤로가기</a>
 
-<!-- 모달 창 -->
-<div id="myModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="img01">
+    <!-- 모달 창 -->
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="img01">
+    </div>
+  </th:block>
 </div>
+
 
 <script>
   // 모달 열기
