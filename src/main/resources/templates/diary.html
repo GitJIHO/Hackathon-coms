@@ -60,11 +60,15 @@
         <div class="day" th:text="${date != null ? date.dayOfMonth : ''}"></div>
       </div>
     </div>
-
-    <a class="button" href="http://localhost:5000/text">AI 그림일기 작성</a>
-    <a class="button" href="/album">앨범 보기</a>
-
-    <a class="button" href="/">메인으로 돌아가기</a>
+    <form action="/redirectToText" method="get">
+      <button class="button" type="submit">AI 그림일기 작성</button>
+    </form>
+    <form action="/redirectToAlbum" method="get">
+      <button class="button" type="submit">앨범 보기</button>
+    </form>
+    <form action="/redirectToMain" method="get">
+      <button class="button" type="submit">메인으로 돌아가기</button>
+    </form>
   </th:block>
 </div>
 
