@@ -48,4 +48,5 @@ uploads/
 
 #os 차이로 인한 변경 불가
 src/main/java/com/cums/BoardApplication.java
+
 facedetector.py
