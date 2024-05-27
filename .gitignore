@@ -41,3 +41,7 @@ myenv/
 
 #REST_API_KEY 저장소
 config.py
+
+#사진 저장소
+src/main/resources/static/images/
+uploads/
