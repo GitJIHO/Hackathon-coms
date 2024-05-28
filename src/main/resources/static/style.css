@@ -61,3 +61,16 @@ body {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
 }
+.custom-page-link-lowcolor{
+    background-color: #e8c3a7;
+    color: #fff;
+}
+.custom-page-link{
+    background-color:#D3A472;
+    color: #fff;
+}
+.custom-pagination .page-item.active .page-link {
+    background-color:#D3A472;
+    border-color: #805e41;
+    color: #fff;
+}
