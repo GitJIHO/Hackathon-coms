@@ -37,31 +37,51 @@
             transform: translateY(0);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
         }
+        .custom-card-header {
+            background-color: #D3A472;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
 <div class="container my-3">
     <th:block layout:fragment="content">
-        <div class="container">
-            <h1 class="mt-5">내 정보</h1>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header custom-card-header text-center">
+                            <h1>내 정보</h1>
+                        </div>
+                        <div class="card-body">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item" sec:authorize="isAnonymous()">
+                                <span class="nav-link">
+                                    <span >로그인되지 않은 사용자입니다.</span>
+                                </span>
+                                </li>
+                                <li class="nav-item" sec:authorize="isAuthenticated()">
+                                <span class="nav-link">
+                                    <i class="fa-solid fa-user"></i>
+                                    <span th:text="${@userService.getUserNickname(#authentication.principal.username)}"></span>
+                                </span>
+                                </li>
+                            </ul>
+                            <div class="text-center mt-4" >
+                                <div sec:authorize="isAuthenticated()">
+                                <form action="/user/update_nickname" method="get" class="mb-2">
+                                    <button class="button signup" type="submit">이름 변경</button>
+                                </form>
+                                </div>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item" sec:authorize="isAuthenticated()">
-            <span class="nav-link">
-                <i class="fa-solid fa-user"></i>
-                <span th:text="${@userService.getUserNickname(#authentication.principal.username)}"></span>님 환영합니다!
-            </span>
-                </li>
-            </ul>
+                                <form action="/" method="get">
+                                    <button class="button signup" type="submit">돌아가기</button>
+                                </form>
 
-            <div class="row mt-5">
-                <div class="col-md-6 offset-md-3 text-center">
-                    <form action="/user/update_nickname" method="get">
-                        <button class="button" type="submit">이름 변경</button>
-                    </form>
-                    <form action="/" method="get">
-                        <button class="button" type="submit">돌아가기</button>
-                    </form>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
