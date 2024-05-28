@@ -8,6 +8,9 @@
     <!-- sbb CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
     <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <style>
         .button {
             width: 320px;
@@ -41,11 +44,13 @@
             background-color: #D3A472;
             color: #fff;
         }
+
+
     </style>
 </head>
 <body>
-<div class="container my-3">
-    <th:block layout:fragment="content">
+<th:block layout:fragment="content">
+    <div class="container my-3">
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-6">
@@ -56,15 +61,15 @@
                         <div class="card-body">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item" sec:authorize="isAnonymous()">
-                                <span class="nav-link">
-                                    <span >로그인되지 않은 사용자입니다.</span>
-                                </span>
+                                    <span class="nav-link">
+                                        <span >로그인되지 않은 사용자입니다.</span>
+                                    </span>
                                 </li>
                                 <li class="nav-item" sec:authorize="isAuthenticated()">
-                                <span class="nav-link">
-                                    <i class="fa-solid fa-user"></i>
-                                    <span th:text="${@userService.getUserNickname(#authentication.principal.username)}"></span>
-                                </span>
+                                    <span class="nav-link">
+                                        <i class="fa-solid fa-user"></i>
+                                        <span th:text="${@userService.getUserNickname(#authentication.principal.username)}"></span>
+                                    </span>
                                 </li>
                             </ul>
                             <div class="text-center mt-4" >
@@ -86,7 +91,7 @@
             </div>
         </div>
 
-    </th:block>
-</div>
+    </div>
+</th:block>
 </body>
 </html>
