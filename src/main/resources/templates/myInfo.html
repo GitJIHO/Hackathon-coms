@@ -8,6 +8,36 @@
     <!-- sbb CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
     <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
+    <style>
+        .button {
+            width: 320px;
+            height: 70px;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #D3A472;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: background-color 0.3s, transform 0.2s;
+
+        }
+
+        .button:hover {
+            background-color: #2E1C03;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+        }
+    </style>
 </head>
 <body>
 <div class="container my-3">
@@ -27,9 +57,11 @@
             <div class="row mt-5">
                 <div class="col-md-6 offset-md-3 text-center">
                     <form action="/user/update_nickname" method="get">
-                        <button class="btn btn-primary mb-3" type="submit">이름 변경</button>
+                        <button class="button" type="submit">이름 변경</button>
                     </form>
-                    <a class="btn btn-primary" href="/">돌아가기</a>
+                    <form action="/" method="get">
+                        <button class="button" type="submit">돌아가기</button>
+                    </form>
                 </div>
             </div>
         </div>

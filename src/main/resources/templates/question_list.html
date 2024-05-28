@@ -2,12 +2,15 @@
 <div layout:fragment="content" class="container my-3">
     <div class="row my-3">
         <div class="col-6">
-            <a th:href="@{/question/create}" class="btn btn-primary">질문 등록하기</a>
+            <form action="/redirectToQuestionForm" method="get">
+                <button class="button signup" type="submit">질문 등록하기</button>
+            </form>
+<!--            <a th:href="@{/question/create}" class="button signup"></a>-->
         </div>
         <div class="col-6">
             <div class="input-group">
-                <input type="text" id="search_kw" class="form-control" th:value="${kw}">
-                <button class="btn btn-outline-secondary" type="button" id="btn_search">찾기</button>
+                <input type="text" id="search_kw" class="form-control" th:value="${kw}" style="width: 180px; height: 45px;">
+                <button class="button signup" type="button" id="btn_search" >찾기</button>
             </div>
         </div>
     </div>
@@ -61,7 +64,9 @@
         <input type="hidden" id="kw" name="kw" th:value="${kw}">
         <input type="hidden" id="page" name="page" th:value="${paging.number}">
     </form>
-    <a href="/" class="btn btn-primary mt-3">뒤로 가기</a>
+    <form action="/" method="get">
+        <button class="button signup" type="submit">메인으로 돌아가기</button>
+    </form>
 </div>
 <script layout:fragment="script" type='text/javascript'>
     const page_elements = document.getElementsByClassName("page-link");

@@ -66,6 +66,14 @@ public class MainController {
     public String myInfo() {
         return "myInfo";
     }
+    @GetMapping("/redirectToQuestionForm")
+    public String redirectToQuestionForm(){
+        String filePath = EIGHT_URL;
+
+        String url = readURLFromFile(filePath);
+        return "redirect:" + url + "/question/create";
+    }
+
 
     // 파일에서 URL을 읽어오는 메서드
     private String readURLFromFile(String filePath) {
