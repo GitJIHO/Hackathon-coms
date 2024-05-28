@@ -2,21 +2,35 @@
 <html lang="en" layout:decorate="~{layout}">
 <head>
   <meta charset="UTF-8">
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0 maximum-scale=1.0,
+        user-scalable=0"
+  />
+  <link rel="icon" type="image/png" href="assets/text_logo.png"> <!-- 탭 옆에 아이콘 안 뜸... -->
   <title>Main Page</title>
   <style>
+    body {
+      background-color: #FFFFF4; /* 연한 베이지 */
+    }
+
     .button-container {
       display: flex;
-      justify-content: space-around;
+      flex-direction: column;
+      align-items: center;
       margin-top: 20px;
     }
     .button {
+      width: 300px;
+      height: 50px;
+      margin-bottom: 30px;
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
-      background-color: #4CAF50;
-      color: white;
+      background-color: #D3A472;
+      color: #2E1C03;
       border: none;
-      border-radius: 5px;
+      border-radius: 10px;
       text-align: center;
     }
     .button:hover {
@@ -28,7 +42,20 @@
 <div class="container my-3">
   <th:block layout:fragment="content">
     <br/>
-    <h1 style="text-align: center;">Welcome to DIALOG</h1>
+    <br/>
+    <br/>
+    <div>
+      <p style="text-align: center;">당신의 하루는 정말 소중하니까</p><br/>
+      <p style="text-align: center;">평범한 일상도 특별한 의미로 남을 수 있게</p><br/>
+      <p style="text-align: center;">다이어리&취미 공유 서비스</p><br/>
+    </div>
+    <div>
+      <img src="https://i.ibb.co/x5vK0Ly/main-room.png" alt="background img1" style="display: block; margin-left: auto; margin-right: auto; width: 90%;"> <!-- 이미지 가져오기 안 됨... -->
+      </br>
+      </br>
+      </br>
+      <img src="https://i.ibb.co/w4XjjtW/main-hobanwoo.png" alt="background img1" style="display: block; margin-left: auto; margin-right: auto; width: 90%;"> <!-- 이미지 가져오기 안 됨... -->
+    </div>
     <div class="button-container">
       <form action="/redirectToDiary" method="get">
         <button class="button" type="submit">AI그림일기</button>
