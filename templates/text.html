@@ -155,11 +155,15 @@
   {% if message %}
   <p class="message">{{ message }}</p>
   {% endif %}
-
-  <br/>
+  <div style="margin-top: 10px"></div>
+  <form action="/redirectToDiary2" method="get">
+    <input type="submit" value="달력으로 돌아가기">
+  </form>
+  <div style="margin-top: 10px"></div>
   <form action="/redirectToMain2" method="get">
     <input type="submit" value="메인으로 돌아가기">
   </form>
+  <br/>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
