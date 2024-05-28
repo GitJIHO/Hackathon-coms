@@ -24,6 +24,7 @@
       align-items: center;
       height: 100vh;
       background-color: #FFFFF4;
+      margin-top: 60px;
     }
 
     /*.container {*/
@@ -64,6 +65,7 @@
       font-size: 16px;
       transition: border-color 0.3s;
       background-color: #FFFFFF;
+      max-width: 500px;
     }
 
     input[type="file"]:focus {
@@ -164,15 +166,17 @@
 
 <div class="container">
   <h1 style="text-align: center;">얼굴 찌뿌리지 말아요</h1>
+  <img src="https://i.ibb.co/k8YRx1d/feat2-hobanwoo1.png" alt="feat2-hobanwoo1" style="display: block; margin-left: auto; margin-right: auto; width: 90%; max-width: 400px;">
+  <!-- 그림일기 분석할 때 호반우임 -->
   <form action="/file" method="post" enctype="multipart/form-data">
-    <label for="file">여러분의 얼굴을 찍어 올려주세요</label>
+    <label for="file" style="text-align: center">여러분의 얼굴을 찍어 올려주세요 <br> AI가 표정을 분석해드려요!</label>
     <input type="file" id="file" name="file" accept="image/*" required>
     <input type="submit" value="사진 업로드">
   </form>
   {% if message %}
   <p class="message">{{ message }}</p>
   {% endif %}
-  <br/>
+  <div style="margin-top: 10px"></div>
   <form action="/redirectToMain2" method="get">
     <input type="submit" value="메인으로 돌아가기">
   </form>
