@@ -140,14 +140,34 @@ def file():
     return render_template('file.html')
 
 EIGHT_URL = "C:/hackerton/Hackathon-cums/8080.txt"
+
 def read_url_from_file(file_path):
     with open(file_path, "r") as file:
         url = file.read().strip()  # 파일에서 URL을 읽어옵니다.
     return url
-@app.route("/redirectToMain")
+
+@app.route("/redirectToMain2")
 def redirect_to_main():
-    url = read_url_from_file(EIGHT_URL)  # 파일에서 URL을 읽어옵니다.
+    url = read_url_from_file(EIGHT_URL)
     return redirect(url)
+@app.route("/redirectToDiary2")
+def redirect_to_diary():
+    url = read_url_from_file(EIGHT_URL)
+    return redirect(url+"/diary")
+@app.route("/redirectToAlbum2")
+def redirect_to_album():
+    url = read_url_from_file(EIGHT_URL)
+    return redirect(url+"/album")
+
+@app.route("/redirectToBoard2")
+def redirect_to_board():
+    url = read_url_from_file(EIGHT_URL)
+    return redirect(url+"/question/list")
+
+@app.route("/redirectToMyinfo2")
+def redirect_to_myinfo():
+    url = read_url_from_file(EIGHT_URL)
+    return redirect(url+"/myInfo")
 if __name__ == '__main__':
     os.makedirs('uploads', exist_ok=True)
     app.run(debug=True, port=5000)

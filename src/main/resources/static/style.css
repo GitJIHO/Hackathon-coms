@@ -4,6 +4,15 @@ textarea{
 input[type=submit]{
     margin-top : 10px;
 }
+head {
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+}
+
 body {
     background-color: #FFFFF4; /* 연한 베이지 */
+    margin-top: 80px;
+    font-family: 'Noto Sans KR', sans-serif;
+
 }

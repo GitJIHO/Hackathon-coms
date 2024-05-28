@@ -1,12 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="ko" layout:decorate="~{layout}">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
   <meta charset="UTF-8">
   <title>Diary</title>
   <style>
     body {
+      font-family: 'Noto Sans KR', sans-serif;
+
       background-color: #FFFFF4; /* 연한 베이지 */
+      margin-top: 60px;
     }
     .calendar {
       display: grid;
@@ -15,10 +21,19 @@
       max-width: 400px;
       margin: auto;
     }
-    .day, .weekday {
+    .day {
+      position: relative;
       padding: 10px;
       text-align: center;
       border: 1px solid #ddd;
+      min-height: 50px;
+    }
+    .weekday {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+      font-weight: bold;
+      background-color: #f0f0f0;
     }
     .highlight {
       background-color: #ffeb3b;
@@ -31,11 +46,22 @@
       display: block;
       margin: 20px auto;
       padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
+      background-color: #D3A472;
+      border: none;
+      color: #fff;
       text-align: center;
       text-decoration: none;
       border-radius: 5px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .button:hover {
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .button:active{
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
     }
     .album {
       margin: 20px auto;
@@ -55,22 +81,30 @@
   <th:block layout:fragment="content">
     <div class="header">
       <br/>
-      <h1>Diary for This Month</h1>
+      <h1>이번달의 추억들</h1>
       <h2 th:text="${year} + '년 ' + ${month} + '월'"></h2>
     </div>
     <div class="calendar">
-      <div th:each="day : ${daysOfWeek}" class="weekday" th:text="${day}"></div>
-      <div th:each="date, iterStat : ${dates}" th:classappend="${date == today} ? ' highlight' : ''">
-        <div class="day" th:text="${date != null ? date.dayOfMonth : ''}"></div>
-      </div>
+      <div class="weekday">일</div>
+      <div class="weekday">월</div>
+      <div class="weekday">화</div>
+      <div class="weekday">수</div>
+      <div class="weekday">목</div>
+      <div class="weekday">금</div>
+      <div class="weekday">토</div>
+      <th:block th:each="date, iterStat : ${dates}">
+        <div class="day" th:classappend="${date == today} ? ' highlight' : ''">
+          <span th:text="${date != null ? date.dayOfMonth : ''}"></span>
+        </div>
+      </th:block>
     </div>
     <form action="/redirectToText" method="get">
-      <button class="button" type="submit">AI 그림일기 작성</button>
+      <button class="button" type="submit">AI 한컷 생성</button>
     </form>
     <form action="/album" method="get">
-      <button class="button" type="submit">앨범 보기</button>
+      <button class="button" type="submit">한줄한컷 앨범</button>
     </form>
-    <form action="/redirectToMain" method="get">
+    <form action="/" method="get">
       <button class="button" type="submit">메인으로 돌아가기</button>
     </form>
   </th:block>
