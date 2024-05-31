@@ -10,6 +10,7 @@ import sys
 import cv2
 import base64
 from datetime import datetime
+from PIL import Image
 
 #REST_API_KEY값 분리
 import config
