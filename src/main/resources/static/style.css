@@ -73,3 +73,7 @@ body {
     border-color: #805e41;
     color: #fff;
 }
+
+.bg-brown {
+    background-color: #D3A472; /* 원하는 갈색 색상 코드로 변경 */
+}
