@@ -4,7 +4,8 @@
     <h2 class="border-bottom py-2" th:text="${question.subject}"></h2>
     <div class="card my-3">
         <div class="card-body">
-            <div class="card-text" style="white-space: pre-line;" th:text="${question.content}"></div>
+            <div class="card-text" style="white-space: pre-line;" th:utext="${@commonUtil.markdown(question.content)}"></div>
+            <!--            <div class="card-text" style="white-space: pre-line;" th:text="${question.content}"></div>-->
             <div class="d-flex justify-content-end">
                 <div th:if="${question.modifyDate != null}" class="badge bg-light text-dark p-2 text-start mx-3">
                     <div class="mb-2">수정된 날짜</div>
@@ -22,7 +23,7 @@
             <a href="javascript:void(0);" class="recommend btn btn-sm btn-outline-secondary"
                th:data-uri="@{|/question/vote/${question.id}|}">
                 추천
-                <span class="badge rounded-pill bg-brown" th:text="${#lists.size(question.voter)}" style=" background-color: #D3A472;"></span>
+                <span class="badge rounded-pill" th:text="${#lists.size(question.voter)}"style=" background-color: #D3A472;"></span>
             </a>
             <a th:href="@{|/question/modify/${question.id}|}" class="btn btn-sm btn-outline-secondary"
                sec:authorize="isAuthenticated()"
@@ -41,7 +42,8 @@
     <div class="card my-3" th:each="answer : ${question.answerList}">
         <a th:id="|answer_${answer.id}|"></a>
         <div class="card-body">
-            <div class="card-text" style="white-space: pre-line;" th:text="${answer.content}"></div>
+            <div class="card-text" th:utext="${@commonUtil.markdown(answer.content)}"></div>
+            <!--            <div class="card-text" style="white-space: pre-line;" th:text="${answer.content}"></div>-->
             <div class="d-flex justify-content-end">
                 <div th:if="${answer.modifyDate != null}" class="badge bg-light text-dark p-2 text-start mx-3">
                     <div class="mb-2">수정된 날짜</div>
@@ -100,6 +102,7 @@
             };
         });
     });
+    var simplemde = new SimpleMDE({element: document.getElementById("content")});
 
 </script>
 </html>
