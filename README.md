@@ -15,8 +15,10 @@
 2. 웹 서비스 개발 배경
 3. 주요 기능 소개
 4. 부가 기능 소개
-5. 서버 환경
-6. "dialog"만의 차별점
+5. 기술 스택
+6. 서버 환경
+7. 기술 명세서
+8. "dialog"만의 차별점
 <br/>
 
 # 1. 웹 서비스 소개 및 팀 소개
@@ -54,6 +56,18 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 사용자들의 취미를 공유할 수 있는 게시판을 제작하여<br/>
 사용자들 간의 소통을 가능하게 하였습니다.<br/><br/>
 
+### ♦️ dialog의 마스코트 '몬드(Mond)'
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/ccJMVb8/Kakao-Talk-20240601-215513941.png" alt="Kakao-Talk-20240601-215513941" border="0" width = "300px"></a>
+<br/>
+<br/>
+<b> ♦️ 다이아몬드(diamond) + 일상 기록(log) 📖 </b>
+<br/>
+<br/>
+"다이아몬드처럼 반짝이는 당신의 하루를 특별하게 기록 해드릴게요!"
+<br/>
+<br/>
+<br/>
+
 # 2.웹 서비스 개발 배경
 <a href="https://ibb.co/2c6JdYR"><img src="https://i.ibb.co/7rzhKNB/2024-05-31-205405.png" alt="2024-05-31-205405" border="0" width="300"></a>
 <a href="https://ibb.co/s9JQ1Fw"><img src="https://i.ibb.co/B2Kj6gZ/2024-05-31-205439.png" alt="2024-05-31-205439" border="0" width="300"></a>
@@ -75,45 +89,83 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 
 # 3. 주요 기능 소개
 ## ✍🏻한줄한컷
-<--! 사진 3컷 서비스 화면 넣고 -->
+<a href="https://ibb.co/YNyJKKL"><img src="https://i.ibb.co/0nF1WWG/2024-06-02-035414.png" alt="2024-06-02-035414" border="0"></a>
 
-
-<--! 사용한 코드 넣고, 사용한 karlog ai에 대해서 넣기-->
-
+<br/>
+📌 <strong>Karlog.ai</strong> 이용하여 AI 기반 그림(사진)일기 생성<br/>
+🔗 https://blog.kakaobrain.com/news/room/1024
+<br/>
+<br/>
+<br/>
 
 ## ✍🏻얼굴 찌푸리지 말아요
-<--! 사진 2컷 서비스 화면 넣고 -->
+<a href="https://ibb.co/myb8hwT"><img src="https://i.ibb.co/94ctyLg/2024-06-02-043400.png" alt="2024-06-02-043400" border="0"></a>
 
-<--! 사용한 코드 넣고, tensorflow에 대한 내용 넣기 -->
+<br/>
+📌 <strong>tensorflow</strong>이용하여 업로드한 사진 속 인물의 행복도 측정<br/>
+🔗 https://www.kaggle.com/datasets/msambare/fer2013
+<br/>
+<br/>
+<br/>
 
 ## ✍🏻쉼터
-<--! 사진 3컷 서비스 화면 넣고 -->
+<a href="https://ibb.co/MDJzHP0"><img src="https://i.ibb.co/FbdQ18T/2024-06-02-043026.png" alt="2024-06-02-043026" border="0"></a>
 
-<--! 마크다운 에디터에 대한 내용 -->
-
-
+<br/>
+📌 <strong>마크다운 에디터</strong>를 사용하여 다양한 표현을 이용하여 게시글 작성<br/>
 <br/>
 <br/>
 <br/>
 
 # 4. 부가 기능 소개
 ## 👥 마이페이지
-<--! 서비스 화면 3컷 넣고 -->
-
-<--! 코드 넣기 -->
+<a href="https://ibb.co/Wn9jd6g"><img src="https://i.ibb.co/BLDF7tq/2024-06-02-040629.png" alt="2024-06-02-040629" border="0"></a>
 
 <br/>
-<br/>
-<br/>
-
-# 5. 서버 환경
-<--! nrokg에 대한 설명 -->
+📌 이메일을 이용하여 회원가입 후, 내 정보에서 본인의 이름 수정 가능.
 
 <br/>
 <br/>
 <br/>
 
-# 6. "dialog"만의 차별점
-<--! dialog 만의 차별점에 대한 내용 -->
-dialog는 단순히 그림일기로 만들어 주는 게 아니라, 그림이나 사진 등 화풍을 지정하여 일기 생성 가능
-뿐만 아니라 감정 분석, 취미 공유 커뮤니케이션 플랫폼 기능까지 추가하여 사용자로 하여금 더 많은 서비스를 한 웹에서 모두 사용할 수 있도록 함.
+# 5. 기술 스택
+### 🖥️ Front-End
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"> <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white">
+### 🖥️ Back-End
+<img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"> <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"> <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white"> <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=TensorFlow&logoColor=white">  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white"> <img src="https://img.shields.io/badge/ngrok-1F1E37?style=for-the-badge&logo=ngrok&logoColor=white">
+
+<br/>
+<br/>
+<br/>
+
+# 6. 서버 환경
+<a href="https://ibb.co/PY1KyMD"><img src="https://i.ibb.co/W3BZX0V/image.png" alt="image" border="0"></a>
+
+📌 <strong>Ngrok</strong>: 로컬 개발 환경에서 인터넷을 통해 웹 애플리케이션에 안전하게 접근할 수 있도록 해줌.<br/>
+🔗 https://ngrok.com/
+
+<br/>
+
+<b>🌟Ngrok의 장점</b> <br/>
+🔎 편리한 설치와 사용 <br/>
+🔎 안전한 연결 <br/>
+🔎 개발 및 테스트 용이성 <br/>
+🔎 다양한 기능 <br/>
+
+<br/>
+<br/>
+<br/>
+
+# 7. 기술 명세서
+<span><img src="https://i.ibb.co/3F7LcnF/s-00001.jpg" alt="s-00001" border="0"></span>
+
+<br/>
+<br/>
+<br/>
+
+# 8. "dialog"만의 차별점
+
+<br/>
+📍 하루를 기록하는 작품을 생성할 때, 화풍을 지정하여 그림 혹은 사진으로 저장 가능. <br/>
+📍 사진 속 인물의 행복도를 측정하여 사용자로 하여금 웃음을 유발할 수 있도록 함. <br/>
+📍 취미 공유 플랫폼 기능을 추가하여 많은 사람들과 소통하는 과정에서 마음의 병을 치유할 수 있도록 함. <br/>
