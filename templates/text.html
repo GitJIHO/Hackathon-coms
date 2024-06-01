@@ -1,29 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Image Generator - Text Input</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Noto Sans KR', sans-serif;
+
+      /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f8f8f8;
-    }
-
-    .container {
-      max-width: 500px;
-      width: 100%;
-      padding: 40px;
-      background-color: #fff;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      text-align: center;
+      background-color: #FFFFF4;
+      margin-top: 80px;
     }
 
     h1 {
@@ -44,21 +39,24 @@
       color: #555;
     }
 
-    input[type="text"] {
+    textarea {
       margin-bottom: 30px; /* 간격을 늘려줍니다 */
       padding: 15px 16px; /* 텍스트 입력창의 내부 여백을 조절합니다 */
-      width: calc(100% - 32px); /* 입력창의 너비를 조절합니다 */
+      width: 100%; /* 입력창의 너비를 조절합니다 */
+      height: 150px; /* textarea의 높이를 지정합니다 */
       box-sizing: border-box;
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 16px;
       transition: border-color 0.3s;
+      resize: vertical; /* 사용자가 높이를 조절할 수 있도록 설정합니다 */
+      max-width: 600px;
     }
 
     input[type="submit"] {
       margin-top: 10px; /* 버튼과 입력창 사이의 간격을 조절합니다 */
       padding: 15px 20px; /* 버튼의 내부 여백을 조절합니다 */
-      background-color: #4CAF50;
+      background-color: #D3A472;
       color: #fff;
       border: none;
       cursor: pointer;
@@ -69,17 +67,14 @@
     }
 
     input[type="submit"]:hover {
-      background-color: #45a049;
+      background-color: #D3A472;
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
       transform: translateY(-2px);
     }
 
     input[type="submit"]:active {
       transform: translateY(0);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
-    }
-
-    input[type="submit"]:hover {
-      background-color: #0056b3;
     }
 
     .message {
@@ -98,25 +93,84 @@
     a:hover {
       color: #0056b3;
     }
+
+    .navbar {
+      background-color: rgba(211, 164, 114, 0.9);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      /*font-weight: bold;*/
+
+    }
+
+    .navbar-brand,
+    .nav-link {
+      color: #FFFFFF !important;
+    }
   </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/redirectToMain2" style="font-weight: bold">DIALOG</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/redirectToMain2">메인화면</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/redirectToDiary2">한줄한컷</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/redirectToAlbum2">한줄한컷 앨범</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/file">얼굴 찌푸리지 말아요</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/redirectToBoard2">쉼터</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/redirectToMyinfo2">내 정보</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <div class="container">
-  <h1>AI 그림일기 생성기</h1>
+  <h1 style="text-align: center;">한줄한컷</h1>
+  <img src="https://i.ibb.co/bHRDf4K/feature1-mond.png" alt="feature1-mond" style="display: block; margin-left: auto; margin-right: auto; width: 70%; max-width: 400px;">
+  <br/>
   <form action="/text" method="post" enctype="multipart/form-data">
-    <label for="sentence">오늘 하루를 기록하세요</label>
-    <input type="text" id="sentence" name="sentence" required>
-    <input type="submit" value="이미지 생성">
+    <label for="sentence" style="text-align: center">뭐든 좋아요! 오늘의 한줄을 기록해주세요 <br/>AI가 사진 한 컷을 만들어줘요</label>
+    <label for="example1" style="text-align: center; font-size: 12px;">*원하는 화풍을 지정할 수 있어요! <br/> <br/> ex1: 오늘 친구들과 함께 공원으로 피크닉을 갔다. <br/> 가서 샌드위치도 먹고 행복했다. 애니메이션으로 그려줘.</label>
+    <label for="example2" style="text-align: center; font-size: 12px;">ex2 : 오늘은 처음으로 운전을 했다. 드라이브를 하니까 <br/> 기분이 좋았다. 사진으로 만들어줘. <br/> <br/>
+    </label>
+    <textarea id="sentence" name="sentence" required></textarea>
+    <input type="submit" value="한컷 생성">
   </form>
   {% if message %}
   <p class="message">{{ message }}</p>
   {% endif %}
-
-  <br/>
-  <form action="/redirectToMain" method="get">
-    <button class="button" type="submit">메인으로 돌아가기</button>
+  <div style="margin-top: 10px"></div>
+  <form action="/redirectToDiary2" method="get">
+    <input type="submit" value="달력으로 돌아가기">
   </form>
-
+  <div style="margin-top: 10px"></div>
+  <form action="/redirectToMain2" method="get">
+    <input type="submit" value="메인으로 돌아가기">
+  </form>
+  <br/>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 import tensorflow as tf
 import requests
 from deep_translator import GoogleTranslator
@@ -10,8 +10,9 @@ import sys
 import cv2
 import base64
 from datetime import datetime
+import pymysql.cursors  # PyMySQL 연결을 위한 라이브러리
 
-#REST_API_KEY값 분리
+# REST_API_KEY값 분리
 import config
 
 # 재귀 깊이 제한 증가 (일시적인 해결책)
@@ -25,31 +26,47 @@ model = load_model('emotion_model.h5')
 # 감정 레이블
 emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
 
+# MySQL 데이터베이스 연결 설정
+db_config = {
+    'user': 'root',
+    'password': '123456',
+    'host': 'localhost',
+    'database': 'mydatabase'
+}
+
+def get_db_connection():
+    return pymysql.connect(
+        user=db_config['user'],
+        password=db_config['password'],
+        host=db_config['host'],
+        database=db_config['database'],
+        cursorclass=pymysql.cursors.DictCursor
+    )
+
+def save_image_to_db(image_name, image_data):
+    conn = get_db_connection()
+    try:
+        with conn.cursor() as cursor:
+            sql = "INSERT INTO images (name, data) VALUES (%s, %s)"
+            cursor.execute(sql, (image_name, image_data))
+        conn.commit()
+    finally:
+        conn.close()
+
 def detect_face(img_path):
-    # 이미지 읽기
     img = cv2.imread(img_path)
-    # Haar Cascade 분류기 로드
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-    # 이미지를 흑백으로 변환
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    # 얼굴 감지
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 
     if len(faces) == 0:
-        return None, 'Face not detected'  # 얼굴이 검출되지 않은 경우에도 None과 오류 메시지 반환
+        return None, 'Face not detected'
 
-    # 가장 큰 얼굴 영역 선택
     (x, y, w, h) = sorted(faces, key=lambda x: x[2] * x[3], reverse=True)[0]
-
-    # 얼굴 이미지 추출
     face_img = img[y:y+h, x:x+w]
-
-    # 이미지 저장 (optional)
     cv2.imwrite('uploads/face_' + os.path.basename(img_path), face_img)
+    return 'uploads/face_' + os.path.basename(img_path), None
 
-    return 'uploads/face_' + os.path.basename(img_path), None  # 오류가 없을 때는 None을 반환하고 오류 메시지는 None으로 처리
-
-# 이미지를 Base64로 인코딩하는 함수
 def encode_image(image_path):
     if image_path is None:
         return None
@@ -57,15 +74,13 @@ def encode_image(image_path):
         encoded_string = base64.b64encode(img_file.read()).decode('utf-8')
     return encoded_string if encoded_string else None
 
-# 이미지 전처리 함수
 def preprocess_image(img_path):
     img = image.load_img(img_path, target_size=(48, 48), color_mode='grayscale')
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
-    img_array /= 255.0  # 정규화
+    img_array /= 255.0
     return img_array
 
-# 감정 예측 함수
 def predict_emotion(img_path):
     preprocessed_img = preprocess_image(img_path)
     predictions = model.predict(preprocessed_img)
@@ -103,15 +118,17 @@ def text():
             response = generate_image(translated_sentence, '')
             image_url = response.get('images')[0].get('image')
             image_data = requests.get(image_url).content
-            # 이미지 파일 이름을 현재 날짜와 시간으로 설정하여 저장
             current_time = datetime.now().strftime("%Y년 %m월 %d일 %H시 %M분")
-            folder_path = os.path.join('src', 'main','resources', 'static', 'images')
+            folder_path = os.path.join('src', 'main', 'resources', 'static', 'images')
             os.makedirs(folder_path, exist_ok=True)
             filename = os.path.join(folder_path, f'{current_time}.png')
             with open(filename, 'wb') as f:
                 f.write(image_data)
-            base64_image = base64.b64encode(image_data).decode('utf-8')
 
+            # 데이터베이스에 이미지 저장
+            save_image_to_db(f'{current_time}.png', image_data)
+
+            base64_image = base64.b64encode(image_data).decode('utf-8')
             return render_template('result_text.html', image=base64_image)
     return render_template('text.html')
 
@@ -138,6 +155,30 @@ def file():
             except Exception as e:
                 return render_template('file.html', message=str(e))
     return render_template('file.html')
+
+import url8080
+url = url8080.url
+
+@app.route("/redirectToMain2")
+def redirect_to_main():
+    return redirect(url)
+
+@app.route("/redirectToDiary2")
+def redirect_to_diary():
+    return redirect(url + "/diary")
+
+@app.route("/redirectToAlbum2")
+def redirect_to_album():
+    return redirect(url + "/album")
+
+@app.route("/redirectToBoard2")
+def redirect_to_board():
+    return redirect(url + "/question/list")
+
+@app.route("/redirectToMyinfo2")
+def redirect_to_myinfo():
+    return redirect(url + "/myInfo")
+
 if __name__ == '__main__':
     os.makedirs('uploads', exist_ok=True)
     app.run(debug=True, port=5000)

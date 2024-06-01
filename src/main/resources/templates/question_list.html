@@ -1,13 +1,65 @@
 <html layout:decorate="~{layout}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+    <!-- sbb CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        .button {
+            width: 320px;
+            height: 70px;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #D3A472;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: background-color 0.3s, transform 0.2s;
+
+        }
+
+        .button:hover {
+            background-color: #2E1C03;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+        }
+        .custom-card-header {
+            background-color: #D3A472;
+            color: #fff;
+        }
+
+
+    </style>
+</head>
+<body>
 <div layout:fragment="content" class="container my-3">
     <div class="row my-3">
         <div class="col-6">
-            <a th:href="@{/question/create}" class="btn btn-primary">질문 등록하기</a>
+            <form action="/redirectToQuestionForm" method="get">
+                <button class="button signup" type="submit">취미 공유하기</button>
+            </form>
+            <!--            <a th:href="@{/question/create}" class="button signup"></a>-->
         </div>
         <div class="col-6">
             <div class="input-group">
-                <input type="text" id="search_kw" class="form-control" th:value="${kw}">
-                <button class="btn btn-outline-secondary" type="button" id="btn_search">찾기</button>
+                <input type="text" id="search_kw" class="form-control" th:value="${kw}" style="width: 180px; height: 45px;">
+                <button class="button signup" type="button" id="btn_search" >찾기</button>
             </div>
         </div>
     </div>
@@ -38,19 +90,19 @@
     </table>
     <!-- 페이징처리 시작 -->
     <div th:if="${!paging.isEmpty()}">
-        <ul class="pagination justify-content-center">
+        <ul class="pagination justify-content-center custom-pagination">
             <li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
-                <a class="page-link" href="javascript:void(0)" th:data-page="${paging.number-1}">
+                <a class="page-link custom-page-link" href="javascript:void(0)" th:data-page="${paging.number-1}">
                     <span>이전</span>
                 </a>
             </li>
             <li th:each="page: ${#numbers.sequence(0, paging.totalPages)}"
                 th:if="${(paging.number <= 4 and page <= 10) or (page >= paging.number-5 and page <= paging.number+5)}"
                 th:classappend="${page == paging.number} ? 'active'" class="page-item">
-                <a th:text="${page+1}" class="page-link" href="javascript:void(0)" th:data-page="${page}"></a>
+                <a th:text="${page+1}" class="page-link custom-page-link-lowcolor" href="javascript:void(0)" th:data-page="${page}"></a>
             </li>
             <li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
-                <a class="page-link" href="javascript:void(0)" th:data-page="${paging.number+1}">
+                <a class="page-link custom-page-link" href="javascript:void(0)" th:data-page="${paging.number+1}">
                     <span>다음</span>
                 </a>
             </li>
@@ -61,7 +113,9 @@
         <input type="hidden" id="kw" name="kw" th:value="${kw}">
         <input type="hidden" id="page" name="page" th:value="${paging.number}">
     </form>
-    <a href="/" class="btn btn-primary mt-3">뒤로 가기</a>
+    <form action="/" method="get">
+        <button class="button signup" type="submit">메인으로 돌아가기</button>
+    </form>
 </div>
 <script layout:fragment="script" type='text/javascript'>
     const page_elements = document.getElementsByClassName("page-link");
@@ -78,4 +132,6 @@
         document.getElementById('searchForm').submit();
     });
 </script>
+</body>
+
 </html>

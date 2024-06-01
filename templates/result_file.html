@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analysis Result</title>
+    <title>Result</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Noto Sans KR', sans-serif;
+
+            /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
             background-color: #f5f5f5;
             padding-top: 50px;
             text-align: center;
+            background-color: #FFFFF4;
+            margin-top: 60px;
         }
         h1 {
             color: #333;
         }
         .result {
-            font-size: 1.5em;
+            /*font-size: 1.5em;*/
             color: #555;
             margin-top: 20px;
         }
+
         a {
-            color: #4CAF50;
+            color: #D3A472;
             text-decoration: none;
             font-weight: bold;
         }
@@ -38,33 +48,78 @@
         .image {
             margin-top: 20px;
         }
+        .navbar {
+            background-color: rgba(211, 164, 114, 0.9);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            /*font-weight: bold;*/
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #FFFFFF !important;
+        }
+        input[type="submit"] {
+            margin-top: 10px; /* 버튼과 입력창 사이의 간격을 조절합니다 */
+            padding: 15px 20px; /* 버튼의 내부 여백을 조절합니다 */
+            background-color: #D3A472;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        input[type="submit"]:hover {
+            background-color: #D3A472;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        input[type="submit"]:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+        }
+
     </style>
 </head>
 <body>
-    <h1>Analysis Result</h1>
-    <div class="image">
-        <h2>Uploaded Image:</h2>
-        <img src="data:image/jpeg;base64,{{ original_image }}" alt="Uploaded Image" width="300">
-    </div>
-        <div class="image">
-            <h2>Face Extracted:</h2>
-            <img src="data:image/jpeg;base64,{{ face_image }}" alt="Extracted Face" width="300">
-        </div>
-    <div class="result">
-        The emotion detected in the image is: {{ prediction }}
-    </div>
-    <div class="percentages">
-        <h2>Emotion Probabilities:</h2>
-        {% for emotion, percentage in percentages.items() %}
-            <p>{{ emotion }}: {{ percentage }}%</p>
-        {% endfor %}
-    </div>
-    <div style="margin-top: 10px"></div>
+<div class="container">
+    <h1 style="text-align: center">업로드된 이미지</h1>
+    <img src="data:image/png;base64,{{ original_image }}" alt="Uploaded Image" style="max-width: 300px">
+    {% if face_image %}
+    <h1 style="text-align: center">얼굴 추출 이미지</h1>
+    <img src="data:image/png;base64,{{ face_image }}" alt="Face Extracted Image">
+    <p>* 얼굴이 명확하게 나오지 않은 경우 이미지가 뜨지 않을 수 있습니다</p>
+    {% endif %}
+    <h1 style="text-align: center">행복도</h1>
+    <p>{{ percentages['Happy'] }}%</p>
+    {% if percentages['Happy'] < 30 %}
+    <p>웃음이 부족해요! 활짝 웃으면 행복이 올거에요!</p>
+    {% elif percentages['Happy'] < 60 %}
+    <p>우리 조금 더 웃어볼까요? 더 행복해질거에요!</p>
+    {% else %}
+    <p>지금처럼 활짝 웃으면서 행복하게 지내요!</p>
+    {% endif %}
     <br/>
-    <a href="/file">다른 사진 올리기</a>
-    <!-- "게시판으로 돌아가기" 버튼 -->
-    <div style="margin-top: 10px"></div>
+    <h1 style="text-align: center">감정별 비율</h1>
+    {% for emotion, percentage in percentages.items() %}
+    <p>{{ emotion }}: {{ percentage }}%</p>
+    {% endfor %}
+
     <br/>
-    <a href="http://localhost:8080/">메인화면으로 돌아가기</a>
+    <br/>
+    <form action="/redirectToDiary2" method="get">
+        <input type="submit" value="달력으로 돌아가기">
+    </form>
+    <div style="margin-top: 10px"></div>
+    <form action="/redirectToMain2" method="get">
+        <input type="submit" value="메인으로 돌아가기">
+    </form>
+</div>
 </body>
 </html>

@@ -1,51 +1,205 @@
 <!DOCTYPE html>
-<html lang="en" layout:decorate="~{layout}">
+<html lang="ko" layout:decorate="~{layout}">
+
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0,
+        user-scalable=0" />
+  <link rel="icon" type="image/png" href="assets/text_logo.png">
   <title>Main Page</title>
+  <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Image Generator - Text Input</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
   <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+
+      margin: 0;
+      padding: 0;
+      background-color: #FFFFF4;
+      margin-top: 60px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 21px;
+      font-weight: 200;
+      /* 가벼운 글씨 */
+    }
+    .navbar {
+      font-size: 16px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: bolder;
+
+    }
+
     .button-container {
       display: flex;
-      justify-content: space-around;
+      flex-direction: column;
+      align-items: center;
       margin-top: 20px;
     }
+
     .button {
+      width: 320px;
+      height: 70px;
+      margin-bottom: 30px;
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: 20px;
       cursor: pointer;
-      background-color: #4CAF50;
-      color: white;
+      background-color: #D3A472;
+      color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 10px;
       text-align: center;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: background-color 0.3s, transform 0.2s;
+
     }
+
     .button:hover {
-      background-color: #45a049;
+      background-color: #2E1C03;
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
     }
+
+    .button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+    }
+
+    .intro {
+      margin-top: 80px;
+    }
+
+    .inform {
+      text-align: center;
+      font-size: 20px;
+      color: #6D593A;
+      font-weight: 300;
+      /* 두꺼운 글씨 */
+      margin-top: 50px;
+      margin-left: -120px;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+
+    .text1 {
+      text-align: center;
+      font-size: 16px;
+      color: #6D593A;
+      font-weight: 300;
+      /* 두꺼운 글씨 */
+      margin-top: -25px;
+      margin-left: -32px;
+    }
+
+    .text1_2 {
+      margin-left: -60px;
+    }
+
+    .text2 {
+      text-align: center;
+      font-size: 16px;
+      color: #6D593A;
+      font-weight: 300;
+      /* 두꺼운 글씨 */
+      margin-top: -25px;
+      margin-left: -75px;
+    }
+
+    .text2_2 {
+      margin-left: -120px;
+    }
+
+    .text3 {
+      text-align: center;
+      font-size: 16px;
+      color: #6D593A;
+      font-weight: 300;
+      /* 두꺼운 글씨 */
+      margin-top: -25px;
+      margin-left: -70px;
+    }
+
+    .text3_2 {
+      margin-left: -103px;
+    }
+
+    .text{
+      text-align: center;
+      font-size: 20px;
+      color: #6D593A;
+      font-weight: 400;
+      /* 두꺼운 글씨 */
+    }
+
   </style>
 </head>
-<body >
+
+<body>
 <div class="container my-3">
   <th:block layout:fragment="content">
-    <br/>
-    <h1 style="text-align: center;">Welcome to DIALOG</h1>
+    <div class = "intro">
+      <p style="text-align: center;">당신은 이 세상 무엇보다 반짝이니까</p>
+      <p style="text-align: center;">평범한 하루도 특별할 수 있게</p>
+      <p style="text-align: center;">AI 기반 일상 기록&커뮤니티 플랫폼</p>
+    </div>
+    <br />
+    <div>
+      <img src="https://i.ibb.co/T87wPZX/main-background.png" alt="main-background"
+           style="display: block; margin-left: auto; margin-right: auto; width: 85%; max-width: 500px;">
+      <div class="text">
+        <div class="text_1">제 이름은 몬드!</div>
+        <div class="text_2">여러분의 하루를 특별하게</div>
+        <div class="text_3">만들어 드릴게요!</div>
+      </div>
+    </div>
+    <div class="inform">이렇게 서비스를 이용해요!</div>
     <div class="button-container">
       <form action="/redirectToDiary" method="get">
-        <button class="button" type="submit">AI그림일기</button>
+        <button class="button" type="submit">한줄한컷</button>
       </form>
+      <div class="text1">
+        <div class="text1_1">:오늘 기억에 남는 일을 한 줄로 작성하면<br /></div>
+        <div class="text1_2">AI가 사진 한 컷을 만들어줘요!</div><br />
+      </div>
       <form action="/redirectToDiaryAnalysis" method="get">
-        <button class="button" type="submit">그림일기 분석</button>
+        <button class="button" type="submit">얼굴 찌푸리지 말아요</button>
       </form>
+      <div class="text2">
+        <div class="text2_1">:당신의 표정을 AI가 분석해드려요<br /></div>
+        <div class="text2_2">활짝 웃어봐요!</div><br/>
+      </div>
       <form action="/redirectToHobbyBoard" method="get">
-        <button class="button" type="submit">취미 게시판</button>
+        <button class="button" type="submit">쉼터</button>
       </form>
+      <div class="text3">
+        <div class="text3_1">:잠시 쉬어가며 여러분의 관심사를<br /></div>
+        <div class="text3_2">함께 공유해봐요</div><br/>
+      </div>
       <form action="/myInfo" method="get">
         <button class="button" type="submit">내 정보</button>
       </form>
     </div>
+    <br />
+    <hr>
+    <div class = "copyright" style = "text-align: center; font-size: 16px">
+      © 2024.
+      <a href="https://github.com/GitJIHO/Hackathon-coms" target="_blank" style="color: #6D593A; font-weight: 300;">COM's</a>
+      all rights reserved.
+    </div>
+    <br />
   </th:block>
 </div>
 
 
 </body>
+
 </html>

@@ -1,9 +1,9 @@
 package com.cums.image;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
+import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,34 +11,45 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AlbumController {
 
-    // 앨범 페이지 요청을 처리하는 핸들러
+    @Autowired
+    private AlbumImagesRepository imageRepository;
+
     @GetMapping("/album")
     public String album(Model model) {
-        // 이미지가 저장된 폴더 경로
+        List<AlbumImages> images = imageRepository.findAll();
 
-        String folderPath = "src/main/resources/static/images";
+        // 이미지 데이터를 Base64로 인코딩하여 문자열 리스트로 변환
+        List<ImageDTO> imagePaths = images.stream()
+            .sorted((a, b) -> b.getId().compareTo(a.getId()))
+            .map(image -> {
+                String nameWithoutExtension = image.getName().replaceAll("\\.png$", "");
+                String dataUrl = "data:image/png;base64," + Base64.getEncoder().encodeToString(image.getData());
+                return new ImageDTO(nameWithoutExtension, dataUrl);
+            })
+            .collect(Collectors.toList());
 
-
-        // 폴더 내의 이미지 파일 경로를 저장할 리스트
-        List<String> imagePaths = new ArrayList<>();
-
-        // 폴더 내의 파일 목록을 읽어와서 이미지 파일 경로 리스트에 추가
-        File folder = new File(folderPath);
-        File[] files = folder.listFiles();
-        if (files != null) {
-            Arrays.sort(files, (f1, f2) -> f2.getName().compareTo(f1.getName()));
-            for (File file : files) {
-                if (file.isFile()) {
-                    // 파일의 상대 경로를 리스트에 추가
-                    imagePaths.add("/images/" + file.getName());
-                }
-            }
-        }
-
-        // 이미지 파일 경로 리스트를 모델에 추가하여 Thymeleaf로 전달
+        // 이미지 데이터 리스트를 모델에 추가하여 Thymeleaf로 전달
         model.addAttribute("imagePaths", imagePaths);
-
         // 앨범 페이지로 이동
         return "album";
+    }
+
+    public static class ImageDTO {
+        private String name;
+        private String dataUrl;
+
+        public ImageDTO(String name, String dataUrl) {
+            this.name = name;
+            this.dataUrl = dataUrl;
+        }
+
+        // Getters
+        public String getName() {
+            return name;
+        }
+
+        public String getDataUrl() {
+            return dataUrl;
+        }
     }
 }

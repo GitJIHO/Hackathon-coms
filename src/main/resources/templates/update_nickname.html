@@ -1,33 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
+<html layout:decorate="~{layout}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
-    <!-- sbb CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
-</head>
-<h1>이름 수정</h1>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/3W7yzv3/dialog-logo.png">
+    <title>이름 수정</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #fffff4;
+        }
+        .card {
+            border: 0px solid #444; /* 강조된 테두리 */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+            border-radius: 5px; /* 모서리 둥글게 */
+        }
+        .card-header {
+            background-color: #CFB69D;
+            color: white;
+            font-weight: bold;
+        }
+        .btn {
+            background-color: #D3A472;
+            color: white;
+            font-size: 18px;
+            border-radius: 20px; /* 모서리 둥글게 */
+            width: 170px; /* 버튼 크기 조정 */
+            height: 50px;
+            transition: background-color 0.3s, transform 0.3s; /* 애니메이션 효과 */
+        }
+        .btn:hover {
+            background-color: #A47E5A; /* 호버 색상 */
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05); /* 클릭시 확대 효과 */
+        }
 
-<form th:action="@{/user/updateNickname}" method="post">
-    <div class="row g-3 align-items-center">
-        <div class="col-auto">
-            <label for="newNickname" class="col-form-label">수정할 이름</label>
-        </div>
-        <div class="col-auto">
-            <input type="text" id="newNickname" class="form-control" name="newNickname" aria-describedby="newNicknameHelpInline">
-        </div>
-        <div class="col-auto">
-            <button class="btn btn-primary"type="submit">확인</button>
+        .form-control {
+            border-radius: 5px; /* 입력 필드 모서리 둥글게 */
+            transition: border-color 0.3s; /* 테두리 색상 변경 효과 */
+        }
+        .form-control:focus {
+            border-color: #FF6347; /* 포커스 시 테두리 색상 변경 */
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content" class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h1>이름 수정</h1>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/user/updateNickname}" method="post">
+                        <div class="form-group">
+                            <label for="newNickname" class="col-form-label">수정할 이름</label>
+                            <input type="text" id="newNickname" class="form-control" name="newNickname" aria-describedby="newNicknameHelpInline" placeholder="새 이름을 입력하세요">
+                        </div>
+                        <div class="form-group text-center mt-3">
+                            <button type="submit" class="btn">확인</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-<!--    <label  for="newNickname">수정할 닉네임:</label>-->
-<!--    <input class="form-control" type="text" id="newNickname" name="newNickname" required>-->
-<!--    <button class="btn btn-primary"type="submit">확인</button>-->
-</form>
-
-
 </div>
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
