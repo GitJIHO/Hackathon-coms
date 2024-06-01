@@ -3,6 +3,11 @@
 // 대표 화면 사진 넣겠습니다
 <img src="file:///C:/Users/seoye/Desktop/%EC%BB%B4s/KakaoTalk_20240602_012026461.png" />
 
+당신은 이 세상 무엇보다 반짝이니까.
+평범한 하루도 특별하게 기억되도록.
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+</style>
 # 목차
 
 1. 퉵 서비스 개발 배경
