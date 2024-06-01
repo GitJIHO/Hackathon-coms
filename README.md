@@ -3,8 +3,7 @@
 // 대표 화면 사진 넣겠습니다
 <img src="file:///C:/Users/seoye/Desktop/%EC%BB%B4s/KakaoTalk_20240602_012026461.png" />
 
-목차
-<hr style="border:solid 0.5px lightgray;">
+# 목차
 
 1. 퉵 서비스 개발 배경
 2. 웹 서비스 소개
