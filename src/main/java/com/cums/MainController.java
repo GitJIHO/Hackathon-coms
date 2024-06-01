@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-    private final String FIVE_URL = "https://4690-2001-e60-c142-31eb-9562-9948-9270-e18.ngrok-free.app";
-    private final String EIGHT_URL = "https://bc06-2001-e60-c142-31eb-9562-9948-9270-e18.ngrok-free.app";
+    private final String FIVE_URL = "https://2b25-2001-2d8-622d-cdec-897b-9fcc-ef7-d179.ngrok-free.app";
+    private final String EIGHT_URL = "https://5bcf-2001-2d8-622d-cdec-897b-9fcc-ef7-d179.ngrok-free.app";
 
 //    private final String FIVE_URL = "http://localhost:5000";
 //    private final String EIGHT_URL = " http://localhost:8080";

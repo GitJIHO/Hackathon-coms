@@ -82,7 +82,10 @@
       <div th:each="imagePath : ${imagePaths}">
         <img th:src="${imagePath}" alt="앨범 사진">
         <!-- 이미지 파일명 표시 -->
-        <span th:text="${imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('.'))}"></span>
+<!--        <span th:text="${imagePath.name></span>-->
+      </div>
+      <div th:each="image : ${images}">
+        <span th:text="${image.name}"></span>
       </div>
     </div>
     <!-- 뒤로가기 버튼 -->
