@@ -1,7 +1,6 @@
 # Hackathon-coms
 
-<!--대표 화면 사진 넣겠습니다-->
-<a href="https://ibb.co/prCfMvc"><img src="https://i.ibb.co/VpXgzWR/Kakao-Talk-20240602-012026461.png" alt="Kakao-Talk-20240602-012026461" border="0"></a>
+<a href="https://ibb.co/fkVtD78"><img src="https://i.ibb.co/m9rtN7v/main.png" alt="main" border="0"></a>
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,10 +117,13 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <br/>
 
 ## ✍🏻쉼터
-<a href="https://ibb.co/MDJzHP0"><img src="https://i.ibb.co/FbdQ18T/2024-06-02-043026.png" alt="2024-06-02-043026" border="0"></a>
+<a href="https://ibb.co/9nNmkWD"><img src="https://i.ibb.co/PxNsvgL/2024-06-02-044723.png" alt="2024-06-02-044723" border="0" width="450px"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/tHS4ymQ/2024-06-02-044806.png" alt="2024-06-02-044806" border="0" width="450px"></a>
 
 <br/>
 📌 <strong>마크다운 에디터</strong>를 사용하여 다양한 표현을 이용하여 게시글 작성<br/>
+<a href="https://ibb.co/1TxR6Vg"><img src="https://i.ibb.co/DQnwpXJ/2024-06-02-045014.png" alt="2024-06-02-045014" border="0" width="450px"></a> <br/>
+🔗 https://simplemde.com/markdown-guide
 <br/>
 <br/>
 <br/>
