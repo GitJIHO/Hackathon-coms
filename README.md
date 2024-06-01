@@ -106,7 +106,8 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <a href="https://ibb.co/myb8hwT"><img src="https://i.ibb.co/94ctyLg/2024-06-02-043400.png" alt="2024-06-02-043400" border="0"></a>
 
 <br/>
-📌 <strong>tensorflow</strong>이용하여 업로드한 사진 속 인물의 행복도 측정<br/>
+﻿
+📌 <strong>Kaggle Datasets</strong>의 28709개의 표정들을 TensorFlow를 통해 사전에 학습시켜 AI 감정 분석 기능을 설계함.<br/>
 🔗 https://www.kaggle.com/datasets/msambare/fer2013
 <br/>
 <br/>
@@ -161,7 +162,7 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <br/>
 
 # 7. 기술 명세서
-<span><img src="https://i.ibb.co/3F7LcnF/s-00001.jpg" alt="s-00001" border="0"></span>
+<span><img src="https://i.ibb.co/LZfHyVp/s-00001.jpg" alt="s-00001" border="0"></span>
 
 <br/>
 <br/>
