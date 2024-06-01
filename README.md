@@ -97,7 +97,10 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 
 <br/>
 📌 <strong>Karlog.ai</strong> 이용하여 AI 기반 그림(사진)일기 생성<br/>
+<br/>
+<a href="https://ibb.co/rw63knP"><img src="https://i.ibb.co/S3ncNqT/2024-05-31-214033.png" alt="2024-05-31-214033" border="0" width = "450px"></a><br/>
 🔗 https://blog.kakaobrain.com/news/room/1024
+
 <br/>
 <br/>
 <br/>
@@ -108,6 +111,7 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <br/>
 ﻿
 📌 <strong>Kaggle Datasets</strong>의 28709개의 표정들을 TensorFlow를 통해 사전에 학습시켜 AI 감정 분석 기능을 설계함.<br/>
+<a href="https://ibb.co/MZhw5qJ"><img src="https://i.ibb.co/S5xY7qZ/2024-05-31-214345.png" alt="2024-05-31-214345" border="0" width="450px"></a> <br/>
 🔗 https://www.kaggle.com/datasets/msambare/fer2013
 <br/>
 <br/>
