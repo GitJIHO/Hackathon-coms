@@ -8,12 +8,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analysis Result</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+    <title>Result</title>
     <style>
-
         body {
             font-family: 'Noto Sans KR', sans-serif;
 
@@ -65,72 +61,65 @@
         .nav-link {
             color: #FFFFFF !important;
         }
+        input[type="submit"] {
+            margin-top: 10px; /* 버튼과 입력창 사이의 간격을 조절합니다 */
+            padding: 15px 20px; /* 버튼의 내부 여백을 조절합니다 */
+            background-color: #D3A472;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        input[type="submit"]:hover {
+            background-color: #D3A472;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        input[type="submit"]:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+        }
+
     </style>
 </head>
 <body>
+<div class="container">
+    <h1 style="text-align: center">업로드된 이미지</h1>
+    <img src="data:image/png;base64,{{ original_image }}" alt="Uploaded Image" style="max-width: 300px">
+    {% if face_image %}
+    <h1 style="text-align: center">얼굴 추출 이미지</h1>
+    <img src="data:image/png;base64,{{ face_image }}" alt="Face Extracted Image">
+    <p>* 얼굴이 명확하게 나오지 않은 경우 이미지가 뜨지 않을 수 있습니다</p>
+    {% endif %}
+    <h1 style="text-align: center">행복도</h1>
+    <p>{{ percentages['Happy'] }}%</p>
+    {% if percentages['Happy'] < 30 %}
+    <p>웃음이 부족해요! 활짝 웃으면 행복이 올거에요!</p>
+    {% elif percentages['Happy'] < 60 %}
+    <p>우리 조금 더 웃어볼까요? 더 행복해질거에요!</p>
+    {% else %}
+    <p>지금처럼 활짝 웃으면서 행복하게 지내요!</p>
+    {% endif %}
+    <br/>
+    <h1 style="text-align: center">감정별 비율</h1>
+    {% for emotion, percentage in percentages.items() %}
+    <p>{{ emotion }}: {{ percentage }}%</p>
+    {% endfor %}
 
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/redirectToMain2" style="font-weight: bold">DIALOG</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/redirectToMain2">메인화면</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/redirectToDiary2">한줄한컷</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/redirectToAlbum2">한줄한컷 앨범</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/file">얼굴 찌푸리지 말아요</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/redirectToBoard2">쉼터</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/redirectToMyinfo2">내 정보</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-    <h1>Analysis Result</h1>
-    <div class="image">
-        <h2>Uploaded Image:</h2>
-        <img src="data:image/jpeg;base64,{{ original_image }}" alt="Uploaded Image" width="300">
-    </div>
-        <div class="image">
-            <h2>Face Extracted:</h2>
-            <img src="data:image/jpeg;base64,{{ face_image }}" alt="Extracted Face" width="300">
-        </div>
-    <div class="result">
-        The emotion detected in the image is: {{ prediction }}
-    </div>
-    <div class="percentages">
-        <h2>Emotion Probabilities:</h2>
-        {% for emotion, percentage in percentages.items() %}
-            <p>{{ emotion }}: {{ percentage }}%</p>
-        {% endfor %}
-    </div>
+    <br/>
+    <br/>
+    <form action="/redirectToDiary2" method="get">
+        <input type="submit" value="달력으로 돌아가기">
+    </form>
     <div style="margin-top: 10px"></div>
-    <br/>
-    <a href="/file">다른 사진 올리기</a>
-    <!-- "게시판으로 돌아가기" 버튼 -->
-    <div style="margin-top: 10px"></div>
-    <br/>
-    <a href="/redirectToMain2">메인화면으로 돌아가기</a>
-    <br/>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <form action="/redirectToMain2" method="get">
+        <input type="submit" value="메인으로 돌아가기">
+    </form>
+</div>
 </body>
 </html>
