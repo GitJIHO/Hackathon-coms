@@ -12,39 +12,48 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #fffff4;
+        }
         .button {
             width: 320px;
             height: 70px;
             margin-bottom: 30px;
+            margin-top: -17px;
             padding: 10px 20px;
             font-size: 20px;
             cursor: pointer;
             background-color: #D3A472;
             color: #fff;
-            border: none;
-            border-radius: 10px;
+            border: none;x
+        border-radius: 10px;
             text-align: center;
             text-decoration: none;
-            opacity: 0.7;
-            transition: background-color 0.3s, transform 0.2s;
-
+            opacity: 0.9; /* 투명도 변경 */
+            transition: background-color 0.3s, transform 0.2s, opacity 0.3s;
         }
 
         .button:hover {
-            background-color: #2E1C03;
-            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+            background-color: #A47E5A; /* 호버 색상 */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transform: translateY(-2px);
+            opacity: 1;
         }
 
         .button:active {
             transform: translateY(0);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
         }
         .custom-card-header {
-            background-color: #D3A472;
+            background-color: #CFB69D;
             color: #fff;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1); /* 텍스트 그림자 추가 */
         }
-
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 카드 그림자 추가 */
+            border-radius: 8px; /* 둥근 모서리 */
+        }
 
     </style>
 </head>
@@ -61,8 +70,8 @@
                         <div class="card-body">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item" sec:authorize="isAnonymous()">
-                                    <span class="nav-link">
-                                        <span >로그인되지 않은 사용자입니다.</span>
+                                    <span class="nav-link" >
+                                        <span>로그인되지 않은 사용자입니다.</span>
                                     </span>
                                 </li>
                                 <li class="nav-item" sec:authorize="isAuthenticated()">
@@ -72,25 +81,22 @@
                                     </span>
                                 </li>
                             </ul>
-                            <div class="text-center mt-4" >
+                            <div class="text-center mt-4">
                                 <div sec:authorize="isAuthenticated()">
                                     <form action="/user/update_nickname" method="get" class="mb-2">
-                                        <button class="button signup" type="submit">이름 변경</button>
+                                        <button class="button signup" style = "border-radius: 8px; width: 60%; height: 50px;"  type="submit">이름 변경</button>
                                     </form>
                                 </div>
 
                                 <form action="/" method="get">
-                                    <button class="button signup" type="submit">돌아가기</button>
+                                    <button class="button signup" style = "border-radius: 8px; width: 60%; height: 50px;" type="submit">돌아가기</button>
                                 </form>
-
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </th:block>
 </body>

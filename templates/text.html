@@ -43,7 +43,7 @@
       margin-bottom: 30px; /* 간격을 늘려줍니다 */
       padding: 15px 16px; /* 텍스트 입력창의 내부 여백을 조절합니다 */
       width: 100%; /* 입력창의 너비를 조절합니다 */
-      height: 300px; /* textarea의 높이를 지정합니다 */
+      height: 150px; /* textarea의 높이를 지정합니다 */
       box-sizing: border-box;
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -145,10 +145,13 @@
 
 <div class="container">
   <h1 style="text-align: center;">한줄한컷</h1>
-  <img src="https://i.ibb.co/gZrXb49/feat1-hobanuu.png" alt="feat1-hobanwoo" style="display: block; margin-left: auto; margin-right: auto; width: 90%; max-width: 400px;">
-  <!-- 그림일기 글 작성할 때 호반우임 -->
+  <img src="https://i.ibb.co/bHRDf4K/feature1-mond.png" alt="feature1-mond" style="display: block; margin-left: auto; margin-right: auto; width: 70%; max-width: 400px;">
+  <br/>
   <form action="/text" method="post" enctype="multipart/form-data">
     <label for="sentence" style="text-align: center">뭐든 좋아요! 오늘의 한줄을 기록해주세요 <br/>AI가 사진 한 컷을 만들어줘요</label>
+    <label for="example1" style="text-align: center; font-size: 12px;">*원하는 화풍을 지정할 수 있어요! <br/> <br/> ex1: 오늘 친구들과 함께 공원으로 피크닉을 갔다. <br/> 가서 샌드위치도 먹고 행복했다. 애니메이션으로 그려줘.</label>
+    <label for="example2" style="text-align: center; font-size: 12px;">ex2 : 오늘은 처음으로 운전을 했다. 드라이브를 하니까 <br/> 기분이 좋았다. 사진으로 만들어줘. <br/> <br/>
+    </label>
     <textarea id="sentence" name="sentence" required></textarea>
     <input type="submit" value="한컷 생성">
   </form>

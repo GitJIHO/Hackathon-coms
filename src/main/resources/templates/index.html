@@ -74,6 +74,10 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
     }
 
+    .intro {
+      margin-top: 80px;
+    }
+
     .inform {
       text-align: center;
       font-size: 20px;
@@ -121,11 +125,19 @@
       font-weight: 300;
       /* 두꺼운 글씨 */
       margin-top: -25px;
-      margin-left: -85px;
+      margin-left: -70px;
     }
 
     .text3_2 {
-      margin-left: -94px;
+      margin-left: -103px;
+    }
+
+    .text{
+      text-align: center;
+      font-size: 20px;
+      color: #6D593A;
+      font-weight: 400;
+      /* 두꺼운 글씨 */
     }
 
   </style>
@@ -134,23 +146,20 @@
 <body>
 <div class="container my-3">
   <th:block layout:fragment="content">
-    <br />
-    <br />
-    <br />
-    <div>
-      <p style="text-align: center;">당신은 이 세상 무엇보다 반짝이니까</p><br />
-      <p style="text-align: center;">평범한 하루도 특별할 수 있게</p><br />
-      <p style="text-align: center;">AI 기반 일상 기록&커뮤니티 플랫폼</p><br />
+    <div class = "intro">
+      <p style="text-align: center;">당신은 이 세상 무엇보다 반짝이니까</p>
+      <p style="text-align: center;">평범한 하루도 특별할 수 있게</p>
+      <p style="text-align: center;">AI 기반 일상 기록&커뮤니티 플랫폼</p>
     </div>
     <br />
     <div>
-      <img src="https://i.ibb.co/x5vK0Ly/main-room.png" alt="background img1"
-           style="display: block; margin-left: auto; margin-right: auto; width: 100%; max-width: 500px;">
-      <br />
-      <br />
-      <br />
-      <img src="https://i.ibb.co/w4XjjtW/main-hobanwoo.png" alt="background img1"
-           style="display: block; margin-left: auto; margin-right: auto; width: 100%; max-width: 500px;">
+      <img src="https://i.ibb.co/T87wPZX/main-background.png" alt="main-background"
+           style="display: block; margin-left: auto; margin-right: auto; width: 85%; max-width: 500px;">
+      <div class="text">
+        <div class="text_1">제 이름은 몬드!</div>
+        <div class="text_2">여러분의 하루를 특별하게</div>
+        <div class="text_3">만들어 드릴게요!</div>
+      </div>
     </div>
     <div class="inform">이렇게 서비스를 이용해요!</div>
     <div class="button-container">
@@ -172,7 +181,7 @@
         <button class="button" type="submit">쉼터</button>
       </form>
       <div class="text3">
-        <div class="text3_1">:잠시 쉬어가며 여러분의 취미를<br /></div>
+        <div class="text3_1">:잠시 쉬어가며 여러분의 관심사를<br /></div>
         <div class="text3_2">함께 공유해봐요</div><br/>
       </div>
       <form action="/myInfo" method="get">

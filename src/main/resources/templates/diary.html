@@ -44,6 +44,7 @@
     }
     .header {
       text-align: center;
+      font-weight: 200px;
       margin-bottom: 20px;
     }
     .button {
@@ -89,8 +90,8 @@
   <th:block layout:fragment="content">
     <div class="header">
       <br/>
-      <h1>이번달의 추억들</h1>
-      <h2 th:text="${year} + '년 ' + ${month} + '월'"></h2>
+      <h1 style = "font-weight : 100; margin-bottom: 30px;">이번달의 추억들</h1>
+      <h2 style = "font-size: 27px; font-weight : 500;"th:text="${year} + '년 ' + ${month} + '월'"></h2>
     </div>
     <div class="calendar">
       <div class="weekday">일</div>
@@ -105,7 +106,7 @@
           <span th:text="${date != null ? date.dayOfMonth : ''}"></span>
         </div>
       </th:block>
-    </div> <br/> <br/>
+    </div> <br/>
     <form action="/redirectToText" method="get">
       <button class="button" type="submit">AI 한컷 생성</button>
     </form>
