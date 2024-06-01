@@ -60,7 +60,7 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/ccJMVb8/Kakao-Talk-20240601-215513941.png" alt="Kakao-Talk-20240601-215513941" border="0" width = "300px"></a>
 <br/>
 <br/>
-<b> ♦️ 다이아몬드(diamond) + 일상 기록(log) 📖 </b>
+<b> 📖 다이아몬드(diamond) + 일상 기록(log) 📖 </b>
 <br/>
 <br/>
 "다이아몬드처럼 반짝이는 당신의 하루를 특별하게 기록 해드릴게요!"
