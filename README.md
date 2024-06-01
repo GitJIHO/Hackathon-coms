@@ -4,7 +4,7 @@
 <img src="file:///C:/Users/seoye/Desktop/%EC%BB%B4s/KakaoTalk_20240602_012026461.png" />
 
 목차
-<hr style="border:solid 1px gray;">
+<hr style="border:solid 0.5px lightgray;">
 
 1. 퉵 서비스 개발 배경
 2. 웹 서비스 소개
