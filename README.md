@@ -28,7 +28,7 @@
 <table>
 <tbody>
     <td align="center">
-        <img src="https://i.ibb.co/F81syB1/2024-06-02-021553.png" width="100px;" alt=""/>
+        <a href="https://ibb.co/sFNxfFw"><img src="https://i.ibb.co/TH7jfH8/Kakao-Talk-20240822-145056192.jpg" alt="Kakao-Talk-20240822-145056192" border="0" width="100px;" alt=""/></a>
         <br /><sub><b>이지호</b></sub>
     </td>
     <td align="center">
