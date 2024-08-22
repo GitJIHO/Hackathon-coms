@@ -36,7 +36,7 @@
         <br /><sub><b>김건</b></sub>
     </td>
     <td align="center">
-        <img src="https://i.ibb.co/72dFvpV/Kakao-Talk-20240602-020346537" alt="Kakao-Talk-20240602-020346537" alt="Kakao-Talk-20240602-020346537" width="100px;" alt=""/>
+        <img src="https://i.ibb.co/72dFvpV/Kakao-Talk-20240602-020346537.jpg" alt="Kakao-Talk-20240602-020346537" width="100px;" />
         <br /><sub><b>김서연</b></sub>
     </td>
     <td align="center">
