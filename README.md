@@ -116,8 +116,8 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <br/>
 
 ## ✍🏻쉼터
-<a href="https://ibb.co/9nNmkWD"><img src="https://i.ibb.co/PxNsvgL/2024-06-02-044723.png" alt="2024-06-02-044723" border="0" width="450px"></a>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/tHS4ymQ/2024-06-02-044806.png" alt="2024-06-02-044806" border="0" width="450px"></a>
+<a href="https://ibb.co/ZB2ZnDz"><img src="https://i.ibb.co/1rzSDWG/image.png" alt="image" border="0" width = "30%"/></a>
+<a href="https://ibb.co/VNf22db"><img src="https://i.ibb.co/g7kzzGQ/2.png" alt="2" border="0" width = "30%"/></a>
 
 <br/>
 📌 <strong>마크다운 에디터</strong>를 사용하여 다양한 표현을 이용하여 게시글 작성<br/>
@@ -129,7 +129,7 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 
 # 4. 부가 기능 소개
 ## 👥 마이페이지
-<a href="https://ibb.co/Wn9jd6g"><img src="https://i.ibb.co/BLDF7tq/2024-06-02-040629.png" alt="2024-06-02-040629" border="0"></a>
+<a href="https://ibb.co/nCzxK39"><img src="https://i.ibb.co/742s0gP/image.png" alt="image" border="0" /></a>
 
 <br/>
 📌 이메일을 이용하여 회원가입 후, 내 정보에서 본인의 이름 수정 가능.
