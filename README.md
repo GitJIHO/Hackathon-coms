@@ -167,7 +167,7 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <br/>
 
 # 7. 기술 명세서
-<span><img src="https://i.ibb.co/LZfHyVp/s-00001.jpg" alt="s-00001" border="0"></span>
+<span><a href="https://ibb.co/YQgND5F"><img src="https://i.ibb.co/NCRF10d/s-00001.jpg" alt="s-00001" border="0" /></a></span>
 
 <br/>
 <br/>
