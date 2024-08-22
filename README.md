@@ -92,7 +92,6 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 
 # 3. 주요 기능 소개
 ## ✍🏻한줄한컷
-<a href="https://ibb.co/QFpKMSk"><img src="https://i.ibb.co/7Jj1KMQ/image.png" alt="image" border="0" /></a>
 
 <br/>
 📌 <strong>Karlog.ai</strong> 이용하여 AI 기반 그림(사진)일기 생성<br/>
@@ -150,7 +149,7 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <br/>
 
 # 6. 서버 환경
-<a href="https://ibb.co/PY1KyMD"><img src="https://i.ibb.co/W3BZX0V/image.png" alt="image" border="0"></a>
+<a href="https://ibb.co/QFpKMSk"><img src="https://i.ibb.co/7Jj1KMQ/image.png" alt="image" border="0" /></a>
 
 📌 <strong>Ngrok</strong>: 로컬 개발 환경에서 인터넷을 통해 웹 애플리케이션에 안전하게 접근할 수 있도록 해줌.<br/>
 🔗 https://ngrok.com/
