@@ -32,15 +32,15 @@
         <br /><sub><b>이지호</b></sub>
     </td>
     <td align="center">
-        <img src="https://i.ibb.co/cyFbxf6/Kakao-Talk-20240602-020747331.jpg" alt="Kakao-Talk-20240602-020747331" width="100px;" alt=""/>
+        <a href="https://ibb.co/xX68C1y"><img src="https://i.ibb.co/8N94KrJ/Kakao-Talk-20240602-020747331.jpg" alt="Kakao-Talk-20240602-020747331" border="0" width="100px;" alt=""/></a>
         <br /><sub><b>김건</b></sub>
     </td>
     <td align="center">
-        <img src="https://i.ibb.co/72dFvpV/Kakao-Talk-20240602-020346537.jpg" alt="Kakao-Talk-20240602-020346537" width="100px;" />
+        <a href="https://ibb.co/HrSPjbz"><img src="https://i.ibb.co/Jz1p9G7/Kakao-Talk-20240602-020346537.jpg" alt="Kakao-Talk-20240602-020346537" border="0" width="100px;" /></a>
         <br /><sub><b>김서연</b></sub>
     </td>
     <td align="center">
-        <img src="https://i.ibb.co/wg2jNb6/Kakao-Talk-20240602-020833222.jpg" alt="Kakao-Talk-20240602-020833222" width="100px;" alt=""/>
+        <a href="https://ibb.co/SQy6Bfd"><img src="https://i.ibb.co/8zsm9Yd/Kakao-Talk-20240602-020833222.jpg" alt="Kakao-Talk-20240602-020833222" border="0" width="100px;" alt=""/></a>
         <br /><sub><b>최기영</b></sub>
     </td>
 </tbody>
