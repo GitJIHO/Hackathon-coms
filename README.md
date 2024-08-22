@@ -104,7 +104,7 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <br/>
 
 ## ✍🏻얼굴 찌푸리지 말아요
-<a href="https://ibb.co/myb8hwT"><img src="https://i.ibb.co/94ctyLg/2024-06-02-043400.png" alt="2024-06-02-043400" border="0"></a>
+<a href="https://ibb.co/hBGhnH6"><img src="https://i.ibb.co/3pxG8W3/image.png" alt="image" border="0" width="30%"/></a>
 
 <br/>
 ﻿
