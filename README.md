@@ -56,7 +56,7 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 사용자들 간의 소통을 가능하게 하였습니다.<br/><br/>
 
 ### ♦️ dialog의 마스코트 '몬드(Mond)'
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/ccJMVb8/Kakao-Talk-20240601-215513941.png" alt="Kakao-Talk-20240601-215513941" border="0" width = "300px"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/qmZFfch/Kakao-Talk-20240601-215513941.png" alt="Kakao-Talk-20240601-215513941" border="0" border="0" width = "300px"></a>
 <br/>
 <br/>
 <b> 📖 다이아몬드(diamond) + 일상 기록(log) 📖 </b>
