@@ -106,7 +106,7 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <br/>
 
 ## ✍🏻얼굴 찌푸리지 말아요
-$![image](https://github.com/user-attachments/assets/0352a049-8c0a-4946-8139-8e11c979b980)
+![image](https://github.com/user-attachments/assets/0352a049-8c0a-4946-8139-8e11c979b980)
 
 <br/>
 ﻿
@@ -118,11 +118,11 @@ $![image](https://github.com/user-attachments/assets/0352a049-8c0a-4946-8139-8e1
 <br/>
 
 ## ✍🏻쉼터
-![image](https://github.com/user-attachments/assets/1576570f-195f-4801-896e-4f2fff83a845)
+![image](https://github.com/user-attachments/assets/90a155ca-576d-4038-88f9-fb9c5e8e3e96)
+![image](https://github.com/user-attachments/assets/3ed4a2cd-8f46-49ed-8021-61dd5e888baf)
 
 <br/>
 📌 <strong>마크다운 에디터</strong>를 사용하여 다양한 표현을 이용하여 게시글 작성<br/>
-![image](https://github.com/user-attachments/assets/775ef399-69ab-4000-87a9-db9c6b709eca)
 
 🔗 https://simplemde.com/markdown-guide
 <br/>
