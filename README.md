@@ -93,7 +93,8 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 
 # 3. 주요 기능 소개
 ## ✍🏻한줄한컷
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/SVtfNZ6/image.png" alt="image" border="0" width="30%" /></a>
+![image](https://github.com/user-attachments/assets/280aac27-d4c6-43c1-a207-bd4b79617e26)
+
 <br/>
 📌 <strong>Karlog.ai</strong> 이용하여 AI 기반 그림(사진)일기 생성<br/>
 <br/>
@@ -105,7 +106,7 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <br/>
 
 ## ✍🏻얼굴 찌푸리지 말아요
-<a href="https://ibb.co/hBGhnH6"><img src="https://i.ibb.co/3pxG8W3/image.png" alt="image" border="0" width="30%"/></a>
+$![image](https://github.com/user-attachments/assets/0352a049-8c0a-4946-8139-8e11c979b980)
 
 <br/>
 ﻿
@@ -117,12 +118,12 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <br/>
 
 ## ✍🏻쉼터
-<a href="https://ibb.co/ZB2ZnDz"><img src="https://i.ibb.co/1rzSDWG/image.png" alt="image" border="0" width = "30%"/></a>
-<a href="https://ibb.co/VNf22db"><img src="https://i.ibb.co/g7kzzGQ/2.png" alt="2" border="0" width = "30%"/></a>
+![image](https://github.com/user-attachments/assets/1576570f-195f-4801-896e-4f2fff83a845)
 
 <br/>
 📌 <strong>마크다운 에디터</strong>를 사용하여 다양한 표현을 이용하여 게시글 작성<br/>
-<a href="https://ibb.co/1TxR6Vg"><img src="https://i.ibb.co/DQnwpXJ/2024-06-02-045014.png" alt="2024-06-02-045014" border="0" width="450px"></a> <br/>
+![image](https://github.com/user-attachments/assets/775ef399-69ab-4000-87a9-db9c6b709eca)
+
 🔗 https://simplemde.com/markdown-guide
 <br/>
 <br/>
@@ -130,7 +131,7 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 
 # 4. 부가 기능 소개
 ## 👥 마이페이지
-<a href="https://ibb.co/nCzxK39"><img src="https://i.ibb.co/742s0gP/image.png" alt="image" border="0" /></a>
+![image](https://github.com/user-attachments/assets/8594298d-793d-4f15-814d-175a91ed6f70)
 
 <br/>
 📌 이메일을 이용하여 회원가입 후, 내 정보에서 본인의 이름 수정 가능.
@@ -150,7 +151,6 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <br/>
 
 # 6. 서버 환경
-<a href="https://ibb.co/QFpKMSk"><img src="https://i.ibb.co/7Jj1KMQ/image.png" alt="image" border="0" /></a>
 
 📌 <strong>Ngrok</strong>: 로컬 개발 환경에서 인터넷을 통해 웹 애플리케이션에 안전하게 접근할 수 있도록 해줌.<br/>
 🔗 https://ngrok.com/
