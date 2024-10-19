@@ -24,25 +24,25 @@
 # 1. 웹 서비스 소개 및 팀 소개
 ### ♦️ 팀명
 >**Com's**
-
+    
 ### ♦️ 팀원
 <table>
 <tbody>
     <td align="center">
-        <a href="https://ibb.co/sFNxfFw"><img src="https://i.ibb.co/TH7jfH8/Kakao-Talk-20240822-145056192.jpg" alt="Kakao-Talk-20240822-145056192" border="0" width="100px;" alt=""/></a>
-        <br /><sub><b>이지호</b></sub>
+        <a href="https://ifh.cc/g/QkXhsw.jpg"><img src="https://ifh.cc/g/QkXhsw.jpg" alt="이지호" border="0" width="95px;" alt=""/></a>
+        <br /><sub><b>이지호 - BE</b></sub>
     </td>
     <td align="center">
-        <a href="https://ibb.co/xX68C1y"><img src="https://i.ibb.co/8N94KrJ/Kakao-Talk-20240602-020747331.jpg" alt="Kakao-Talk-20240602-020747331" border="0" width="100px;" alt=""/></a>
-        <br /><sub><b>김건</b></sub>
+        <a href="https://ifh.cc/g/NjmafX.jpg"><img src="https://ifh.cc/g/NjmafX.jpg" alt="김건" border="0" width="100px;" alt=""/></a>
+        <br /><sub><b>김건 - BE</b></sub>
     </td>
     <td align="center">
-        <a href="https://ibb.co/HrSPjbz"><img src="https://i.ibb.co/Jz1p9G7/Kakao-Talk-20240602-020346537.jpg" alt="Kakao-Talk-20240602-020346537" border="0" width="100px;" /></a>
-        <br /><sub><b>김서연</b></sub>
+        <a href="https://ibb.co/HrSPjbz"><img src="https://i.ibb.co/Jz1p9G7/Kakao-Talk-20240602-020346537.jpg" alt="김서연" border="0" width="95px;" /></a>
+        <br /><sub><b>김서연 - FE</b></sub>
     </td>
     <td align="center">
-        <a href="https://ibb.co/SQy6Bfd"><img src="https://i.ibb.co/8zsm9Yd/Kakao-Talk-20240602-020833222.jpg" alt="Kakao-Talk-20240602-020833222" border="0" width="100px;" alt=""/></a>
-        <br /><sub><b>최기영</b></sub>
+        <a href="https://ifh.cc/g/KPoovL.jpg"><img src="https://ifh.cc/g/KPoovL.jpg" alt="최기영" border="0" width="110px;" alt=""/></a>
+        <br /><sub><b>최기영 - FE</b></sub>
     </td>
 </tbody>
 </table>
@@ -57,7 +57,7 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 사용자들 간의 소통을 가능하게 하였습니다.<br/><br/>
 
 ### ♦️ dialog의 마스코트 '몬드(Mond)'
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/qmZFfch/Kakao-Talk-20240601-215513941.png" alt="Kakao-Talk-20240601-215513941" border="0" border="0" width = "300px"></a>
+![image](https://github.com/user-attachments/assets/16929803-6bc2-4213-8511-0a57d3761c83)
 <br/>
 <br/>
 <b> 📖 다이아몬드(diamond) + 일상 기록(log) 📖 </b>
