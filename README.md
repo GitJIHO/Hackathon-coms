@@ -57,8 +57,8 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 사용자들 간의 소통을 가능하게 하였습니다.<br/><br/>
 
 ### ♦️ dialog의 마스코트 '몬드(Mond)'
-![image](https://github.com/user-attachments/assets/16929803-6bc2-4213-8511-0a57d3761c83)
-<br/>
+![image](https://github.com/user-attachments/assets/aee0c02f-ac78-404b-856b-318cd9266868)
+
 <br/>
 <b> 📖 다이아몬드(diamond) + 일상 기록(log) 📖 </b>
 <br/>
