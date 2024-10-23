@@ -1,7 +1,7 @@
 # Hackathon-coms
 > # 2024 GLOW 해커톤 본선 진출작
 
-<a href="https://ibb.co/fkVtD78"><img src="https://i.ibb.co/m9rtN7v/main.png" alt="main" border="0"></a>
+![image](https://github.com/user-attachments/assets/ab002571-324a-4381-9cc5-8e8e9406b8a5)
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
