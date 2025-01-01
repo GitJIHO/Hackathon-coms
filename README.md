@@ -89,7 +89,6 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 <br/>
 <br/>
 <br/>
-<br/>
 
 # 3. 주요 기능 소개
 ## ✍🏻한줄한컷
@@ -103,7 +102,6 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 
 <br/>
 <br/>
-<br/>
 
 ## ✍🏻얼굴 찌푸리지 말아요
 ![image](https://github.com/user-attachments/assets/0352a049-8c0a-4946-8139-8e11c979b980)
@@ -113,7 +111,6 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 📌 <strong>Kaggle Datasets</strong>의 28709개의 표정들을 TensorFlow를 통해 사전에 학습시켜 AI 감정 분석 기능을 설계함.<br/>
 <a href="https://ibb.co/MZhw5qJ"><img src="https://i.ibb.co/S5xY7qZ/2024-05-31-214345.png" alt="2024-05-31-214345" border="0" width="450px"></a> <br/>
 🔗 https://www.kaggle.com/datasets/msambare/fer2013
-<br/>
 <br/>
 <br/>
 
@@ -127,7 +124,6 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 🔗 https://simplemde.com/markdown-guide
 <br/>
 <br/>
-<br/>
 
 # 4. 부가 기능 소개
 ## 👥 마이페이지
@@ -138,7 +134,6 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 
 <br/>
 <br/>
-<br/>
 
 # 5. 기술 스택
 ### 🖥️ Front-End
@@ -146,7 +141,6 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 ### 🖥️ Back-End
 <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"> <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"> <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white"> <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=TensorFlow&logoColor=white">  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white"> <img src="https://img.shields.io/badge/ngrok-1F1E37?style=for-the-badge&logo=ngrok&logoColor=white">
 
-<br/>
 <br/>
 <br/>
 
@@ -165,13 +159,11 @@ AI 기반으로 그림(또는 사진)으로 하루를 기록해줍니다.<br/><b
 
 <br/>
 <br/>
-<br/>
 
 # 7. 기술 명세서
 ![img](https://github.com/user-attachments/assets/86d82657-8813-4cb7-a3aa-92d8fd1eedd5)
 
 
-<br/>
 <br/>
 <br/>
 
